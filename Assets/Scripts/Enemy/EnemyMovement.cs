@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TvZ.Character;
+using UnityEngine.Events;
 
 
 namespace TvZ.Enemy
@@ -15,6 +16,8 @@ namespace TvZ.Enemy
         private DetectionArea detectionArea;
 
         private Rigidbody2D rb;
+
+        public UnityEvent onReachedTarget;
 
         private void Awake()
         {
@@ -39,6 +42,7 @@ namespace TvZ.Enemy
 
             }else if (distance <= stopDistance)
             {
+                onReachedTarget.Invoke();
                 Destroy(gameObject);
             }
             
@@ -46,9 +50,11 @@ namespace TvZ.Enemy
            
         }
 
-        public void SetEnemy(Transform destination)
+        public void SetEnemy(Transform destination, UnityAction reachedEvent)
         {
             destinationPos = destination;
+
+            onReachedTarget.AddListener(reachedEvent);
         }
     }
 }

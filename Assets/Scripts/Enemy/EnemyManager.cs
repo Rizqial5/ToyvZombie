@@ -1,3 +1,4 @@
+using TvZ.Core;
 using UnityEngine;
 
 namespace TvZ.Enemy
@@ -9,6 +10,12 @@ namespace TvZ.Enemy
         [SerializeField] Transform[] startLoc;
         [SerializeField] Transform[] finishLoc;
 
+        private HouseStat houseStat;
+
+        private void Awake()
+        {
+            houseStat = FindAnyObjectByType<HouseStat>();
+        }
         private void Start()
         {
             //InvokeRepeating("GenerateEnemy", 0.5f, 0.5f);
@@ -16,11 +23,11 @@ namespace TvZ.Enemy
 
         private void Update()
         {
-            if(Input.touchCount > 0)
+            if (Input.touchCount > 0)
             {
                 Touch touch = Input.GetTouch(0);
 
-                if(touch.phase == TouchPhase.Began )
+                if (touch.phase == TouchPhase.Began)
                 {
                     GenerateEnemy();
                 }
@@ -29,13 +36,13 @@ namespace TvZ.Enemy
 
         private void GenerateEnemy()
         {
-            //int randomInt = Random.Range(0, startLoc.Length);
+            int randomInt = Random.Range(0, startLoc.Length);
 
-            int randomInt = 2;
+            
 
             GameObject spawnedEnemy = Instantiate(enemyPrefab, startLoc[randomInt].position,Quaternion.identity);
 
-            spawnedEnemy.GetComponent<EnemyMovement>().SetEnemy(finishLoc[randomInt]);
+            spawnedEnemy.GetComponent<EnemyMovement>().SetEnemy(finishLoc[randomInt], houseStat.GameOver);
         }
     }
 }
