@@ -23,15 +23,15 @@ namespace TvZ.Enemy
 
         private void Update()
         {
-            if (Input.touchCount > 0)
-            {
-                Touch touch = Input.GetTouch(0);
+            //if (Input.touchCount > 0)
+            //{
+            //    Touch touch = Input.GetTouch(0);
 
-                if (touch.phase == TouchPhase.Began)
-                {
-                    GenerateEnemy();
-                }
-            }
+            //    if (touch.phase == TouchPhase.Began)
+            //    {
+            //        GenerateEnemy();
+            //    }
+            //}
         }
 
         private void GenerateEnemy()

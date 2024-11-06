@@ -60,6 +60,7 @@ namespace TvZ.Core
             // Buat objek yang didrag dari prefab
             draggedObject = Instantiate(objectToSpawn);
             draggedObject.SetActive(false);  // Sembunyikan dulu, akan ditampilkan saat drag
+            
         }
 
         // Dipanggil saat drag dimulai
@@ -81,6 +82,7 @@ namespace TvZ.Core
             // Tampilkan objek yang sedang di-drag dan posisikan di world space sesuai posisi mouse
             draggedObject.SetActive(true);
             draggedObject.transform.position = worldPosition;
+            draggedObject.GetComponent<BoxCollider2D>().enabled = false;
 
             foreach (SnapPoint item in snapPoints)
             {
@@ -105,8 +107,8 @@ namespace TvZ.Core
                 // Jika ada snap point yang dekat, letakkan objek di sana
                 draggedObject.transform.SetParent(nearestSnapPoint);
                 draggedObject.transform.position = nearestSnapPoint.position;
-
-                nearestSnapPoint.GetComponent<BoxCollider2D>().enabled = true;
+                draggedObject.GetComponent<BoxCollider2D>().enabled = true;
+                
 
 
 

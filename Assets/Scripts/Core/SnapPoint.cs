@@ -42,7 +42,7 @@ namespace TvZ.Core
             if (collision.gameObject.CompareTag("Player"))
             {
                 isOccupied = false;
-                boxCollider.enabled = false;
+
                 
             }
         }

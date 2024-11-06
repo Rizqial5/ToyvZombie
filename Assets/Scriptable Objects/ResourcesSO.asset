@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceCategories:
   - category: 0
-    resourcesTotal: 0
+    resourcesTotal: 100
   - category: 1
-    resourcesTotal: 0
+    resourcesTotal: 100
