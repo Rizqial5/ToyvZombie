@@ -59,10 +59,38 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -1.018
       objectReference: {fileID: 0}
+    - target: {fileID: 4953251816855748265, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
+      propertyPath: resourcesDrop.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953251816855748265, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
+      propertyPath: resourcesDrop.Array.data[0].amountDrop
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953251816855748265, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
+      propertyPath: resourcesDrop.Array.data[1].amountDrop
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953251816855748265, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
+      propertyPath: resourcesDrop.Array.data[2].amountDrop
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953251816855748265, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
+      propertyPath: resourcesDrop.Array.data[1].resourcesEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953251816855748265, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
+      propertyPath: resourcesDrop.Array.data[2].resourcesEnum
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5840159554902255996, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
       propertyPath: charHealth
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5840159554902255996, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
+      propertyPath: charStatSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 332fec6ff0f3fa74894c9afc92d785a3, type: 2}
     - target: {fileID: 5842060066469281372, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
       propertyPath: m_SortingOrder
       value: 0
@@ -102,4 +130,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3714293e5b6ffa3488970ec28f0feb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePoint: 25
+  charStatSO: {fileID: 11400000, guid: 332fec6ff0f3fa74894c9afc92d785a3, type: 2}

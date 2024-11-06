@@ -6,7 +6,8 @@ namespace TvZ.Character
 {
     public class AttackChar : MonoBehaviour
     {
-        [SerializeField] float damagePoint;
+        [SerializeField] StatSO charStatSO;
+        private float damagePoint;
 
         private DetectionArea detectionArea;
         private Animator animator;
@@ -15,8 +16,14 @@ namespace TvZ.Character
         {
             detectionArea = GetComponentInChildren<DetectionArea>();
             animator = GetComponent<Animator>();
+
+            
         }
 
+        private void Start()
+        {
+            damagePoint = charStatSO.GetCharStat(StatEnum.Damage);
+        }
         private void Update()
         {
             if(detectionArea.isDetected)

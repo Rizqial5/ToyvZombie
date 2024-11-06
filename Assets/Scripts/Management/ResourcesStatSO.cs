@@ -29,6 +29,13 @@ namespace TvZ.Management
 
             return resourcesTableLookup[category];
         }
+
+        public void AddResources(ResourcesEnum category, float amount)
+        {
+            BuildDictionary();
+
+            resourcesTableLookup[category] += amount;
+        }
     }
 
     [System.Serializable]

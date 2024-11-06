@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 15295846937165699, guid: a838f983e5235a24d9396049e9813d66, type: 3}
+      propertyPath: charStatSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 0fc01da45db19a1489621ba43dc6dbc1, type: 2}
     - target: {fileID: 1148427069907246400, guid: a838f983e5235a24d9396049e9813d66, type: 3}
       propertyPath: m_Name
       value: Toy Archer
@@ -135,6 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc56ac0779a035c4d9540c02b05a3b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charStatSO: {fileID: 11400000, guid: 0fc01da45db19a1489621ba43dc6dbc1, type: 2}
   bulletPrefab: {fileID: 2206321282944862995, guid: bc69c96daa1162f40a2436072961daab, type: 3}
-  bulletDamage: 5
   bulletPerSecond: 2

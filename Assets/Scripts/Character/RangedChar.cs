@@ -7,11 +7,13 @@ namespace TvZ.Character
 {
     public class RangedChar : MonoBehaviour
     {
-        
+        [SerializeField] StatSO charStatSO;
         [SerializeField] GameObject bulletPrefab;
-        [SerializeField] float bulletDamage;
+        
 
         [SerializeField] float bulletPerSecond = 1f;
+
+        private float bulletDamage;
 
 
 
@@ -28,10 +30,13 @@ namespace TvZ.Character
             detectionArea = GetComponentInChildren<DetectionArea>();
             animator = GetComponent<Animator>();
             
-
+            
         }
 
-
+        private void Start()
+        {
+            bulletDamage = charStatSO.GetCharStat(StatEnum.Damage);
+        }
 
         private void Update()
         {

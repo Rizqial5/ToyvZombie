@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using TvZ.Character;
 using UnityEngine;
 using UnityEngine.Events;
@@ -58,10 +59,9 @@ namespace TvZ.Character
 
         void FixedUpdate()
         {
-            if (target == null) return;
-            targetPosition = (target.position - transform.position).normalized;
+            
 
-            rb.velocity = targetPosition * speed;
+            rb.velocity = Vector2.right * speed;
 
 
         }
