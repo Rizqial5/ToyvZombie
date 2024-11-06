@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &9192293225871049079
+--- !u!1001 &9119602016603127621
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1148427069907246400, guid: a838f983e5235a24d9396049e9813d66, type: 3}
       propertyPath: m_Name
-      value: Toy Soldier
+      value: Toy Lancer
       objectReference: {fileID: 0}
     - target: {fileID: 1148427069907246402, guid: a838f983e5235a24d9396049e9813d66, type: 3}
       propertyPath: m_RootOrder
@@ -66,7 +66,7 @@ PrefabInstance:
     - target: {fileID: 1148427069907246403, guid: a838f983e5235a24d9396049e9813d66, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 128456339, guid: a851d9f71b13c5a4eb192b01c4ad74f1, type: 3}
+      objectReference: {fileID: 246411190, guid: 079bb413dd8a73643aa517a19d5112a4, type: 3}
     - target: {fileID: 1148427069907246403, guid: a838f983e5235a24d9396049e9813d66, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -79,28 +79,45 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.newSize.y
       value: 6.25
       objectReference: {fileID: 0}
-    - target: {fileID: 7933755113614000567, guid: a838f983e5235a24d9396049e9813d66, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 6058960781687322015, guid: a838f983e5235a24d9396049e9813d66, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.208222
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058960781687322015, guid: a838f983e5235a24d9396049e9813d66, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.4424
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a838f983e5235a24d9396049e9813d66, type: 3}
---- !u!1 &8097926956563405879 stripped
+--- !u!1 &8178358675800531461 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1148427069907246400, guid: a838f983e5235a24d9396049e9813d66, type: 3}
-  m_PrefabInstance: {fileID: 9192293225871049079}
+  m_PrefabInstance: {fileID: 9119602016603127621}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &6007289054147945847
+--- !u!114 &2674164927148214519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8178358675800531461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3714293e5b6ffa3488970ec28f0feb3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePoint: 25
+--- !u!95 &6453580113697596086
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8097926956563405879}
+  m_GameObject: {fileID: 8178358675800531461}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4e56135b52d71144b967d645f240b196, type: 2}
+  m_Controller: {fileID: 9100000, guid: c08bc84d6c6b204428817754e3cf4f76, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -111,16 +128,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5682889113053911673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8097926956563405879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3714293e5b6ffa3488970ec28f0feb3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagePoint: 25

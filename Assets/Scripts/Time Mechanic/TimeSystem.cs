@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using TvZ.Enemy;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +26,9 @@ namespace TvZ.TimeMechanic
         [Header("Debug Option")]
         [SerializeField] Vector2 positionDebug = new Vector2(100, 0);
 
-        public TimerCountDown timerCountDown { get; set; }
+        public EnemyManager enemyManager {  get; private set; }
+
+        public TimerCountDown timerCountDown { get; private set; }
 
         private void Awake()
         {
@@ -34,6 +37,7 @@ namespace TvZ.TimeMechanic
             nightTimeState = new NightTime(this, timeStateMachine);
 
             timerCountDown = GetComponent<TimerCountDown>();
+            enemyManager = GetComponent<EnemyManager>();
         }
 
         private void Start()

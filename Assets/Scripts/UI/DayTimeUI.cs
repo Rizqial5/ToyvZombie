@@ -37,6 +37,7 @@ namespace TvZ.UI
             backMenuButton.gameObject.SetActive(true);
 
             gameObject.SetActive(false);
+            backMenuButton.onClick.AddListener(() => { upgradeMenuUI.SetActive(false); });
         }
 
         public void ResearchButton()
@@ -45,6 +46,7 @@ namespace TvZ.UI
             backMenuButton.gameObject.SetActive(true);
 
             gameObject.SetActive(false);
+            backMenuButton.onClick.AddListener(() => { researchMenuUI.SetActive(false); });
         }
 
         public void BackMenuButton()

@@ -8,5 +8,6 @@ namespace TvZ.Management
     {
         ToyFragment,
         Gold,
+        BluePrint,
     }
 }

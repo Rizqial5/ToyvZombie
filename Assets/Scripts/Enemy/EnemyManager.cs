@@ -18,7 +18,7 @@ namespace TvZ.Enemy
         }
         private void Start()
         {
-            //InvokeRepeating("GenerateEnemy", 0.5f, 0.5f);
+            //InvokeRepeating("GenerateEnemy", 2f, 2f);
         }
 
         private void Update()
@@ -43,6 +43,11 @@ namespace TvZ.Enemy
             GameObject spawnedEnemy = Instantiate(enemyPrefab, startLoc[randomInt].position,Quaternion.identity);
 
             spawnedEnemy.GetComponent<EnemyMovement>().SetEnemy(finishLoc[randomInt], houseStat.GameOver);
+        }
+
+        public void GenerateEnemyAuto()
+        {
+            InvokeRepeating("GenerateEnemy", 2f, 2f);
         }
     }
 }

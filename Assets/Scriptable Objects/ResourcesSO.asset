@@ -17,3 +17,5 @@ MonoBehaviour:
     resourcesTotal: 100
   - category: 1
     resourcesTotal: 100
+  - category: 2
+    resourcesTotal: 100

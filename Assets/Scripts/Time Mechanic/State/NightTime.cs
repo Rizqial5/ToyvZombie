@@ -16,6 +16,8 @@ namespace TvZ.TimeMechanic
 
             timeSystem.timerCountDown.StartCountdown();
             timeSystem.timerCountDown.onTimerEnd.AddListener(() => { timeStateMachine.ChangeState(timeSystem.dayTimeState); });
+
+            timeSystem.enemyManager.GenerateEnemyAuto();
         }
 
 
