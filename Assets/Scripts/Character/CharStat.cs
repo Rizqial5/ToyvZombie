@@ -29,7 +29,7 @@ namespace TvZ.Character
         {
             charHealth = charStatSO.GetCharStat(StatEnum.Health);
 
-            print(charStatSO.GetCharStat(StatEnum.Health));
+            
         }
 
 

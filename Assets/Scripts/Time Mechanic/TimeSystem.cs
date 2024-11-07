@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using TvZ.Enemy;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace TvZ.TimeMechanic
@@ -29,6 +30,10 @@ namespace TvZ.TimeMechanic
         public EnemyManager enemyManager {  get; private set; }
 
         public TimerCountDown timerCountDown { get; private set; }
+
+        private int dayElapsed;
+
+        public UnityEvent onDayChanged;
 
         private void Awake()
         {
@@ -58,7 +63,15 @@ namespace TvZ.TimeMechanic
 
         public void SkipDay()
         {
-            timeStateMachine.ChangeState(nightTimeState);
+            if (timeStateMachine.currentTimeState == dayTimeState)
+            {
+                timeStateMachine.ChangeState(nightTimeState);
+            }
+            else if (timeStateMachine.currentTimeState == nightTimeState)
+            {
+                timeStateMachine.ChangeState(dayTimeState);
+            }
+            
         }
 
         public void ChangeStatusButton(string text, bool isEnable)
@@ -66,7 +79,14 @@ namespace TvZ.TimeMechanic
             changeButton.gameObject.SetActive(isEnable);
             timeStatusText.text = text;
 
+
             daytimeMenuUI.SetActive(isEnable);
+        }
+
+        public void AddCountDay()
+        {
+            dayElapsed += 1;
+            onDayChanged.Invoke();
         }
 
         

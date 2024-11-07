@@ -12,7 +12,7 @@ namespace TvZ.TimeMechanic
 
         public override void EnterState()
         {
-            timeSystem.ChangeStatusButton("", false);
+            timeSystem.ChangeStatusButton("Skip To Day", true);
 
             timeSystem.timerCountDown.StartCountdown();
             timeSystem.timerCountDown.onTimerEnd.AddListener(() => { timeStateMachine.ChangeState(timeSystem.dayTimeState); });
@@ -33,7 +33,7 @@ namespace TvZ.TimeMechanic
 
         public override void ExitState()
         {
-            base.ExitState();
+            timeSystem.AddCountDay();
         }
     }
 }

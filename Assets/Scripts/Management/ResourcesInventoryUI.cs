@@ -17,6 +17,11 @@ namespace TvZ.Management
 
         private void Start()
         {
+            
+        }
+
+        private void Update()
+        {
             ShowResources();
         }
 

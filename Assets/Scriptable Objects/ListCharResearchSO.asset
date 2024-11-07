@@ -13,6 +13,15 @@ MonoBehaviour:
   m_Name: ListCharResearchSO
   m_EditorClassIdentifier: 
   listCharResearch:
-  - {fileID: 11400000, guid: da35542272cf14440b16e88295bc41b4, type: 2}
-  - {fileID: 11400000, guid: 0fc01da45db19a1489621ba43dc6dbc1, type: 2}
-  - {fileID: 11400000, guid: 9a360ce02e1a4694c841df144cc04bc8, type: 2}
+  - charStat: {fileID: 11400000, guid: 0fc01da45db19a1489621ba43dc6dbc1, type: 2}
+    researchRequirements:
+    - resourcesEnum: 2
+      requiredAmount: 10
+    - resourcesEnum: 1
+      requiredAmount: 10
+  - charStat: {fileID: 11400000, guid: 9a360ce02e1a4694c841df144cc04bc8, type: 2}
+    researchRequirements:
+    - resourcesEnum: 2
+      requiredAmount: 50
+    - resourcesEnum: 1
+      requiredAmount: 10
