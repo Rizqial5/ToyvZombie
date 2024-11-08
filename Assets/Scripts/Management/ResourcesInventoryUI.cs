@@ -12,6 +12,7 @@ namespace TvZ.Management
 
         [Header("UI Object")]
         [SerializeField] TextMeshProUGUI toyFragmentValueText;
+        [SerializeField] TextMeshProUGUI toyEnegrgyValueText;
         [SerializeField] TextMeshProUGUI goldVaueText;
         [SerializeField] TextMeshProUGUI bluePrintValueText;
 
@@ -28,6 +29,7 @@ namespace TvZ.Management
         public void ShowResources()
         {
             toyFragmentValueText.text = resourcesStatSO.GetResources(ResourcesEnum.ToyFragment).ToString();
+            toyEnegrgyValueText.text = resourcesStatSO.GetResources(ResourcesEnum.ToyEnergy).ToString();
             goldVaueText.text = resourcesStatSO.GetResources(ResourcesEnum.Gold).ToString();
             bluePrintValueText.text = resourcesStatSO.GetResources(ResourcesEnum.BluePrint).ToString();
         }

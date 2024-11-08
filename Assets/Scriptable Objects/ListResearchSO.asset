@@ -10,18 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24f269a4d28e6604596ed3c37975b9e6, type: 3}
-  m_Name: ListCharResearchSO
+  m_Name: ListResearchSO
   m_EditorClassIdentifier: 
   listCharResearch:
   - charStat: {fileID: 11400000, guid: 0fc01da45db19a1489621ba43dc6dbc1, type: 2}
     researchRequirements:
-    - resourcesEnum: 2
+    - resourcesEnum: 3
       requiredAmount: 10
-    - resourcesEnum: 1
+    - resourcesEnum: 0
       requiredAmount: 10
   - charStat: {fileID: 11400000, guid: 9a360ce02e1a4694c841df144cc04bc8, type: 2}
     researchRequirements:
-    - resourcesEnum: 2
+    - resourcesEnum: 3
       requiredAmount: 50
-    - resourcesEnum: 1
+    - resourcesEnum: 0
       requiredAmount: 10
+  listResourceResearch:
+  - resourcesCategroy: 3
+    researchResourceDesc:
+      resourceFunction: Unlock Toy Research
+      goldRequirement: 100

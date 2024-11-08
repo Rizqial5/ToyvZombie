@@ -49,5 +49,10 @@ namespace TvZ.Enemy
         {
             InvokeRepeating("GenerateEnemy", 2f, 2f);
         }
+
+        public void StopGenerateEnemy()
+        {
+            CancelInvoke("GenerateEnemy");
+        }
     }
 }

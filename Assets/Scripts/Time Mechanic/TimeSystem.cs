@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using TvZ.Enemy;
+using TvZ.Management;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -34,6 +35,7 @@ namespace TvZ.TimeMechanic
         private int dayElapsed;
 
         public UnityEvent onDayChanged;
+        
 
         private void Awake()
         {

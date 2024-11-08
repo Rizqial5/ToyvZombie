@@ -7,6 +7,7 @@ namespace TvZ.Management
     public enum ResourcesEnum 
     {
         ToyFragment,
+        ToyEnergy,
         Gold,
         BluePrint,
     }

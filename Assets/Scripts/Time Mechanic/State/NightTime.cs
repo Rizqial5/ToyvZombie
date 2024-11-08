@@ -34,6 +34,8 @@ namespace TvZ.TimeMechanic
         public override void ExitState()
         {
             timeSystem.AddCountDay();
+
+            timeSystem.enemyManager.StopGenerateEnemy();
         }
     }
 }

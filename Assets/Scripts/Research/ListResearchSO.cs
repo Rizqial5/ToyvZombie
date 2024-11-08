@@ -10,31 +10,39 @@ namespace TvZ.Research
     public class ListResearchSO : ScriptableObject
     {
         [SerializeField] ResearchChar[] listCharResearch;
+        [SerializeField] ResearchResource[] listResourceResearch;
+        
 
 
         private Dictionary<StatSO, Dictionary<ResourcesEnum, float>> researchCharDict;
+        private Dictionary<StatSO, string> researchCharDescDict;
+        private Dictionary<ResourcesEnum, float> researchCharRequirementDict;
 
-        private Dictionary<ResourcesEnum, float> researchRequirementDict;
+        private Dictionary<ResourcesEnum, ResearchResourceDesc> resourceResearchDict;
 
-
-        private void BuildResearchDict()
+        #region Char Research
+        private void BuildResearchCharDict()
         {
             if (researchCharDict != null) return;
 
             researchCharDict = new Dictionary<StatSO, Dictionary<ResourcesEnum, float>>();
-            researchRequirementDict = new Dictionary<ResourcesEnum, float>();
+            researchCharDescDict = new Dictionary<StatSO, string>();
+            researchCharRequirementDict = new Dictionary<ResourcesEnum, float>();
 
             foreach (ResearchChar item in listCharResearch)
             {
-                
-                foreach (ResearchRequirement item1 in item.researchRequirements)
+
+                foreach (ResearchRequirementChar item1 in item.researchRequirements)
                 {
-                    
-                    researchRequirementDict[item1.resourcesEnum] = item1.requiredAmount;
+
+                    researchCharRequirementDict[item1.resourcesEnum] = item1.requiredAmount;
                 }
 
-                researchCharDict[item.charStat] = researchRequirementDict;
+                researchCharDict[item.charStat] = researchCharRequirementDict;
+                researchCharDescDict[item.charStat] = item.charDesc;
             }
+
+
         }
 
         public List<StatSO> GetListCharResearch()
@@ -47,11 +55,11 @@ namespace TvZ.Research
             }
 
             return listChar;
-        }  
-        
-        public List<ResourcesEnum> GetResearchRequirementCategory(StatSO stat)
+        }
+
+        public List<ResourcesEnum> GetCharResearchRequirementCategory(StatSO stat)
         {
-            BuildResearchDict();
+            BuildResearchCharDict();
 
             List<ResourcesEnum> totalRequirementsCategory = new List<ResourcesEnum>();
 
@@ -63,26 +71,103 @@ namespace TvZ.Research
             return totalRequirementsCategory;
         }
 
-        public float GetResearchRequiredAmount(StatSO stat, ResourcesEnum resourcesEnum)
+        public float GetCharResearchRequiredAmount(StatSO stat, ResourcesEnum resourcesEnum)
         {
-            BuildResearchDict();
+            BuildResearchCharDict();
 
             return researchCharDict[stat][resourcesEnum];
         }
 
-        
-        
+        public string GetResearchCharDesc(StatSO stat)
+        {
+            BuildResearchCharDict();
+
+            return researchCharDescDict[stat];
+        }
+
+        #endregion
+
+
+        #region Resource Research
+        private void BuildResourceResearchDict()
+        { 
+            if(resourceResearchDict != null) return;
+
+            resourceResearchDict = new Dictionary<ResourcesEnum, ResearchResourceDesc>();
+
+            foreach (ResearchResource item in listResourceResearch)
+            {
+                resourceResearchDict[item.resourcesCategroy] = item.researchResourceDesc;
+            }
+
+        }
+
+        public List<ResourcesEnum> GetListResourceResearch()
+        {
+            BuildResourceResearchDict();
+
+            List<ResourcesEnum> resourcesCategoryTotal = new List<ResourcesEnum>();
+
+            foreach (ResourcesEnum item in resourceResearchDict.Keys)
+            {
+                resourcesCategoryTotal.Add(item);
+            }
+
+            return resourcesCategoryTotal;
+        }
+
+        public float GetGoldResearchRequirements(ResourcesEnum resourcesEnum)
+        {
+            BuildResourceResearchDict();
+
+            return resourceResearchDict[resourcesEnum].goldRequirement;
+        }
+
+        public string GetResourceDesc(ResourcesEnum resourcesEnum)
+        {
+            BuildResourceResearchDict();
+
+            return resourceResearchDict[resourcesEnum].resourceFunction;
+        }
+
+        #endregion
+
+
+
+
+
+
+
     }
 
     [System.Serializable]
     public class ResearchChar
     {
         public StatSO charStat;
-        public ResearchRequirement[] researchRequirements;
+        [TextArea(2, 5)]
+        public string charDesc;
+        public ResearchRequirementChar[] researchRequirements;
     }
 
     [System.Serializable]
-    public class ResearchRequirement
+    public class ResearchResource
+    {
+        public ResourcesEnum resourcesCategroy;
+        public ResearchResourceDesc researchResourceDesc;
+        
+
+    }
+
+    [System.Serializable]
+    public class ResearchResourceDesc
+    {
+        [TextArea(2, 5)]
+        public string resourceFunction;
+        public float goldRequirement;
+    }
+
+    [System.Serializable]
+    public class ResearchRequirementChar
     {
         public ResourcesEnum resourcesEnum;
         public float requiredAmount;
