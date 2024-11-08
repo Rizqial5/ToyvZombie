@@ -5,16 +5,22 @@ using TvZ.Management;
 using TvZ.Character;
 using TvZ.Core;
 using TMPro;
+using Unity.VisualScripting;
 
 namespace TvZ.UI
 {
     public class ToyCardPlaceUI : MonoBehaviour
     {
-        [SerializeField] DragDropHandler toyCardUI;
+        [SerializeField] ToyCardUI toyCardUI;
         [SerializeField] Transform cardListUILayout;
+        [SerializeField] GameObject descObject;
+
+        [SerializeField] ResourcesStatSO resourcesStatSO;
 
         private List<StatSO> listToyAvailable = new List<StatSO>();
         private List<StatSO> listSpawned = new List<StatSO>();
+
+        
 
         public void ShowToyList()
         {
@@ -33,15 +39,28 @@ namespace TvZ.UI
             {
                 if (listSpawned.Contains(listToyAvailable[i])) continue;
 
-                DragDropHandler toyCardSpawned = Instantiate(toyCardUI, cardListUILayout);
+                ToyCardUI toyCardSpawned = Instantiate(toyCardUI, cardListUILayout);
                 
-                toyCardSpawned.objectToSpawn = listToyAvailable[i].GetCharPrefab();
+                toyCardSpawned.GetComponent<DragDropHandler>().objectToSpawn = listToyAvailable[i].GetCharPrefab();
 
                 toyCardSpawned.GetComponentInChildren<TextMeshProUGUI>().text = listToyAvailable[i].name;
+
+                toyCardSpawned.GetComponent<CheckRequiredResourceChar>().SetCheck(listToyAvailable[i], resourcesStatSO);
+
+                toyCardSpawned.SetToyCard(listToyAvailable[i]);
+
+                foreach (ResourcesEnum item in listToyAvailable[i].GetResoucesListRequired())
+                {
+                    toyCardSpawned.SetToyCardDesc(listToyAvailable[i].GetResourceRequiredAmount(item), descObject);
+                }
 
                 listSpawned.Add(listToyAvailable[i]);
             }
         }
+
+        
+
+        
         
     }
 }

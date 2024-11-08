@@ -33,9 +33,13 @@ namespace TvZ.TimeMechanic
 
         public override void ExitState()
         {
+            timeSystem.goldIncome.GainGoldIncome();
+
             timeSystem.AddCountDay();
 
             timeSystem.enemyManager.StopGenerateEnemy();
+
+            
         }
     }
 }

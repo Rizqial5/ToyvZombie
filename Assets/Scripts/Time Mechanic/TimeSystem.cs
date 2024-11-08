@@ -22,6 +22,8 @@ namespace TvZ.TimeMechanic
         [SerializeField] TextMeshProUGUI timeStatusText;
         [SerializeField] Button changeButton;
 
+        
+
         [Header("Menu UI")]
         [SerializeField] GameObject daytimeMenuUI;
 
@@ -31,6 +33,8 @@ namespace TvZ.TimeMechanic
         public EnemyManager enemyManager {  get; private set; }
 
         public TimerCountDown timerCountDown { get; private set; }
+
+        public GoldIncome goldIncome { get; private set; }
 
         private int dayElapsed;
 
@@ -45,10 +49,12 @@ namespace TvZ.TimeMechanic
 
             timerCountDown = GetComponent<TimerCountDown>();
             enemyManager = GetComponent<EnemyManager>();
+            
         }
 
         private void Start()
         {
+            goldIncome = FindAnyObjectByType<GoldIncome>();
             timeStateMachine.Initialize(dayTimeState);
         }
 

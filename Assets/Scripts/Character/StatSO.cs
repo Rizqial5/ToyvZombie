@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TvZ.Management;
 using UnityEngine;
 
 namespace TvZ.Character
@@ -11,8 +12,10 @@ namespace TvZ.Character
         [SerializeField] GameObject charPrefab;
 
         [SerializeField] StatCategory[] statCategories;
+        [SerializeField] RequiredResourceChar[] requiredResources;
 
         private Dictionary<StatEnum, float> statTableLookup;
+        private Dictionary<ResourcesEnum, float> resourceRequiredTable;
 
         private void BuildDictionary()
         {
@@ -26,11 +29,44 @@ namespace TvZ.Character
             }
         }
 
+        private void BuildResourceRequiredTable()
+        {
+            if (resourceRequiredTable != null)return;
+
+            resourceRequiredTable = new Dictionary<ResourcesEnum, float>();
+
+            foreach (RequiredResourceChar item in requiredResources)
+            {
+                resourceRequiredTable[item.resourceEnum] = item.requiredAmount;
+            }
+        }
+
         public float GetCharStat(StatEnum statEnum)
         {
             BuildDictionary();
 
             return statTableLookup[statEnum];
+        }
+
+        public List<ResourcesEnum> GetResoucesListRequired()
+        {
+            BuildResourceRequiredTable();
+            List<ResourcesEnum> resourcesCategoryList = new List<ResourcesEnum>();
+
+            foreach (ResourcesEnum item in resourceRequiredTable.Keys)
+            {
+                resourcesCategoryList.Add(item);
+            }
+
+            return resourcesCategoryList;
+
+        }
+
+        public float GetResourceRequiredAmount(ResourcesEnum resourceEnum)
+        {
+            BuildResourceRequiredTable();
+
+            return resourceRequiredTable[resourceEnum];
         }
 
 
@@ -46,5 +82,12 @@ namespace TvZ.Character
     {
         public StatEnum statEnum;
         public float value;
+    }
+
+    [System.Serializable]
+    public class RequiredResourceChar
+    {
+        public ResourcesEnum resourceEnum;
+        public float requiredAmount;
     }
 }

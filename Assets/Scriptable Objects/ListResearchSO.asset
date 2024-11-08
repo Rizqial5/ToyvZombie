@@ -14,12 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listCharResearch:
   - charStat: {fileID: 11400000, guid: 0fc01da45db19a1489621ba43dc6dbc1, type: 2}
+    charDesc: Unlock Toy Archer
     researchRequirements:
     - resourcesEnum: 3
       requiredAmount: 10
     - resourcesEnum: 0
       requiredAmount: 10
   - charStat: {fileID: 11400000, guid: 9a360ce02e1a4694c841df144cc04bc8, type: 2}
+    charDesc: Unlock Toy Lancer
     researchRequirements:
     - resourcesEnum: 3
       requiredAmount: 50

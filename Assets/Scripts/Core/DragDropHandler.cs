@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TvZ.Character;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -16,7 +17,7 @@ namespace TvZ.Core
         private GameObject draggedObject; // Objek yang sedang didrag
 
 
-
+        private CheckRequiredResourceChar checkRequiredResourceChar;
 
         
 
@@ -27,6 +28,7 @@ namespace TvZ.Core
         {
             
             mainCamera = Camera.main;
+            checkRequiredResourceChar = GetComponent<CheckRequiredResourceChar>();
         }
 
         private void Start()
@@ -56,7 +58,13 @@ namespace TvZ.Core
         // Dipanggil saat pointer di tekan (awal drag)
         public void OnPointerDown(PointerEventData eventData)
         {
-       
+
+            checkRequiredResourceChar.CheckResource();
+            if(!checkRequiredResourceChar.isResourceAvail)
+            {
+                print("Resource tidak cukup");
+                return;
+            }
             // Buat objek yang didrag dari prefab
             draggedObject = Instantiate(objectToSpawn);
             draggedObject.SetActive(false);  // Sembunyikan dulu, akan ditampilkan saat drag
@@ -73,7 +81,13 @@ namespace TvZ.Core
         // Dipanggil selama drag
         public void OnDrag(PointerEventData eventData)
         {
-            
+            checkRequiredResourceChar.CheckResource();
+            if (!checkRequiredResourceChar.isResourceAvail)
+            {
+                
+                return;
+            }
+
             // Ubah posisi mouse dari screen space ke world space
             Vector3 mousePosition = Input.mousePosition;
             mousePosition.z = 10f;  // Jarak z dari kamera ke object, sesuaikan dengan jarak kamera ke objek di world space
@@ -93,7 +107,13 @@ namespace TvZ.Core
         // Dipanggil saat drag selesai
         public void OnEndDrag(PointerEventData eventData)
         {
-            
+            checkRequiredResourceChar.CheckResource();
+            if (!checkRequiredResourceChar.isResourceAvail)
+            {
+                print("Resource tidak cukup");
+                return;
+            }
+
             // Ketika drag selesai, objek diletakkan di world space di posisi terakhir mouse
             Vector3 mousePosition = Input.mousePosition;
             mousePosition.z = 10f;  // Jarak z dari kamera ke object
@@ -108,12 +128,12 @@ namespace TvZ.Core
                 draggedObject.transform.SetParent(nearestSnapPoint);
                 draggedObject.transform.position = nearestSnapPoint.position;
                 draggedObject.GetComponent<BoxCollider2D>().enabled = true;
-                
+
 
 
 
                 // Behaviour yang ingin ditambahkan apabila karakter sudah di drop
-                
+                checkRequiredResourceChar.BuildToy();
 
                 onDropChar.Invoke();
             }

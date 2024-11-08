@@ -102,7 +102,7 @@ namespace TvZ.Research
 
         }
 
-        private void CheckResourceForChar()
+        private void CheckResourceForChar() // bug 
         {
             for (int i = 0; i < resourceCategories.Count; i++)
             {
