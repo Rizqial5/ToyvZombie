@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [SerializeField] GameObject pauseUI;
+    
 
     public bool isPaused {  get; private set; }
 

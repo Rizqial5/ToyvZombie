@@ -22,6 +22,7 @@ namespace TvZ.Character
         private Transform targetEnemy;
         private DetectionArea detectionArea;
         private Animator animator;
+        private AudioSource audioSource;
         
 
         private bool isFired;
@@ -29,6 +30,7 @@ namespace TvZ.Character
         {
             detectionArea = GetComponentInChildren<DetectionArea>();
             animator = GetComponent<Animator>();
+            audioSource = GetComponent<AudioSource>();
             
             
         }
@@ -36,6 +38,7 @@ namespace TvZ.Character
         private void Start()
         {
             bulletDamage = charStatSO.GetCharStat(StatEnum.Damage);
+            audioSource.clip = charStatSO.damageClip;
         }
 
         private void Update()
@@ -72,7 +75,10 @@ namespace TvZ.Character
             if (targetEnemy == null) return;
 
             this.targetEnemy = targetEnemy;
+            
             animator.SetBool("isAttack", true);
+
+            audioSource.Play();
             
 
         }

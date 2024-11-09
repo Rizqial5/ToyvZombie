@@ -12,6 +12,7 @@ namespace TvZ.Character
         [SerializeField] GameObject charPrefab;
         [SerializeField] public Sprite charImage;
         [SerializeField] public Color bgColor;
+        [SerializeField] public AudioClip damageClip;
 
         [SerializeField] StatCategory[] statCategories;
         [SerializeField] RequiredResourceChar[] requiredResources;

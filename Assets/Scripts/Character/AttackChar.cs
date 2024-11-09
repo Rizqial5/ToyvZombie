@@ -11,6 +11,7 @@ namespace TvZ.Character
 
         private DetectionArea detectionArea;
         private Animator animator;
+        private AudioSource audioSource;
 
         [SerializeField] float animatorSpeed = 1;
 
@@ -18,6 +19,7 @@ namespace TvZ.Character
         {
             detectionArea = GetComponentInChildren<DetectionArea>();
             animator = GetComponent<Animator>();
+            audioSource = GetComponent<AudioSource>();
 
             
         }
@@ -55,6 +57,9 @@ namespace TvZ.Character
         public void EnemyHit()
         {
             if (!detectionArea.charDetected) return;
+            audioSource.clip = charStatSO.damageClip;
+
+            audioSource.Play();
 
             detectionArea.charDetected.GetComponent<CharStat>().DamageHealth(damagePoint);
         }

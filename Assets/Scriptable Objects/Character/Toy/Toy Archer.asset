@@ -15,6 +15,7 @@ MonoBehaviour:
   charPrefab: {fileID: 5932357205250075242, guid: 67f384adbd4baee49995c29525888913, type: 3}
   charImage: {fileID: -960258956, guid: fbcf70a535dfa6f498e921ab5a7def27, type: 3}
   bgColor: {r: 0.4906785, g: 0.32501957, b: 0.90188676, a: 1}
+  damageClip: {fileID: 8300000, guid: 0df8b8393e6a7c54f9f340502c868ce4, type: 3}
   statCategories:
   - statEnum: 0
     value: 30
