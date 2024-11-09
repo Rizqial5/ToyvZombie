@@ -121,16 +121,16 @@ namespace TvZ.TimeMechanic
 
         
 
-        private void OnGUI()
-        {
+        //private void OnGUI()
+        //{
 
-            GUIStyle textStyle = new GUIStyle(GUI.skin.label);
-            textStyle.fontSize = 40;
-            textStyle.normal.textColor = Color.white;
+        //    GUIStyle textStyle = new GUIStyle(GUI.skin.label);
+        //    textStyle.fontSize = 40;
+        //    textStyle.normal.textColor = Color.white;
 
             
-            // Menampilkan teks di posisi yang ditentukan
-            GUI.Label(new Rect(positionDebug.x, positionDebug.y, 800, 50), timeStateMachine.currentTimeState.ToString(), textStyle);
-        }
+        //    // Menampilkan teks di posisi yang ditentukan
+        //    GUI.Label(new Rect(positionDebug.x, positionDebug.y, 800, 50), timeStateMachine.currentTimeState.ToString(), textStyle);
+        //}
     }
 }
