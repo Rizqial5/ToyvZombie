@@ -38,6 +38,8 @@ namespace TvZ.TimeMechanic
 
         public GoldIncome goldIncome { get; private set; }
 
+        public RepeatedAction repeatedAction { get; private set; }
+
         public int dayElapsed {  get; private set; }
 
         public UnityEvent onDayChanged;
@@ -51,12 +53,15 @@ namespace TvZ.TimeMechanic
 
             timerCountDown = GetComponent<TimerCountDown>();
             enemyManager = GetComponent<EnemyManager>();
+
+            dayElapsed = 1;
             
         }
 
         private void Start()
         {
             goldIncome = FindAnyObjectByType<GoldIncome>();
+            repeatedAction = FindAnyObjectByType<RepeatedAction>();
             timeStateMachine.Initialize(dayTimeState);
         }
 
@@ -75,12 +80,13 @@ namespace TvZ.TimeMechanic
         {
             if (timeStateMachine.currentTimeState == dayTimeState)
             {
+                if (!GameManager.Instance.CheckToyInField()) return;
                 timeStateMachine.ChangeState(nightTimeState);
             }
-            else if (timeStateMachine.currentTimeState == nightTimeState)
-            {
-                timeStateMachine.ChangeState(dayTimeState);
-            }
+            //else if (timeStateMachine.currentTimeState == nightTimeState)
+            //{
+            //    timeStateMachine.ChangeState(dayTimeState);
+            //}
             
         }
 
@@ -95,7 +101,7 @@ namespace TvZ.TimeMechanic
 
         public void StartDayCount()
         {
-            dayElapsed = 1;
+            
             dayTotal.text = "Day : " + dayElapsed.ToString();
         }
         public void AddCountDay()
@@ -110,6 +116,7 @@ namespace TvZ.TimeMechanic
         public void ChangeDayStatus(string text)
         {
             dayStatus.text = text;
+            //
         }
 
         

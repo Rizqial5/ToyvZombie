@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Zombie Skeleton
   m_EditorClassIdentifier: 
   charPrefab: {fileID: 363543195511341148, guid: 5a34d7db94279cc4b9328ae678e65d39, type: 3}
+  charImage: {fileID: 0}
+  bgColor: {r: 0, g: 0, b: 0, a: 0}
   statCategories:
   - statEnum: 0
-    value: 5
+    value: 10
   - statEnum: 1
-    value: 1
+    value: 2
+  requiredResources: []

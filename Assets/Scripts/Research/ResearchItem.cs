@@ -106,7 +106,7 @@ namespace TvZ.Research
 
             if (!isResourceAvailable)
             {
-                NotificationSystem.Instance.SpawnNotif("Resource Tidak Cukup");
+                NotificationSystem.Instance.SpawnNotifRight("Resource Tidak Cukup");
                 //
                 return; 
             }
@@ -173,7 +173,7 @@ namespace TvZ.Research
             if(requiredDay <= 0)
             {
                 ChangeResearchStatus("Completed");
-                NotificationSystem.Instance.SpawnNotif("Research Completed");
+                NotificationSystem.Instance.SpawnNotifRight("Research Completed");
                 
 
                 switch (researchCategory)

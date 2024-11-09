@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TreeEditor;
-using TvZ.Character;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -59,6 +55,8 @@ namespace TvZ.Character
 
         void FixedUpdate()
         {
+            if (GameManager.Instance.isPaused) return;
+            
             
 
             rb.velocity = Vector2.right * speed;

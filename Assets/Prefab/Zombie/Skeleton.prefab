@@ -61,15 +61,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4953251816855748265, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
       propertyPath: resourcesDrop.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4953251816855748265, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
       propertyPath: resourcesDrop.Array.data[0].amountDrop
-      value: 50
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4953251816855748265, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
       propertyPath: resourcesDrop.Array.data[1].amountDrop
-      value: 50
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4953251816855748265, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
       propertyPath: resourcesDrop.Array.data[2].amountDrop

@@ -18,6 +18,7 @@ namespace TvZ.TimeMechanic
             timeSystem.StartDayCount();
             timeSystem.timerCountDown.StartCountdown();
             timeSystem.timerCountDown.onTimerEnd.AddListener(() => { timeStateMachine.ChangeState(timeSystem.nightTimeState); });
+            //
         }
 
 

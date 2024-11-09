@@ -27,6 +27,8 @@ namespace TvZ.Enemy
 
         private void FixedUpdate()
         {
+            if (GameManager.Instance.isPaused) return;
+
             MoveToTarget();
         }
 

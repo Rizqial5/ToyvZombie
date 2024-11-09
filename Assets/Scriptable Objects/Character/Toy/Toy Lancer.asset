@@ -17,9 +17,9 @@ MonoBehaviour:
   bgColor: {r: 0.28677022, g: 0.81886786, b: 0.20857947, a: 1}
   statCategories:
   - statEnum: 0
-    value: 100
+    value: 30
   - statEnum: 1
-    value: 0
+    value: 4
   requiredResources:
   - resourceEnum: 1
-    requiredAmount: 20
+    requiredAmount: 10

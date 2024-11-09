@@ -21,14 +21,14 @@ MonoBehaviour:
       goldCost: 0
       gainMultiplier: 1
     - levelUpgrade: 2
-      goldCost: 100
+      goldCost: 20
       gainMultiplier: 1.5
     - levelUpgrade: 3
-      goldCost: 150
-      gainMultiplier: 1.8
-    - levelUpgrade: 4
-      goldCost: 200
+      goldCost: 50
       gainMultiplier: 2
+    - levelUpgrade: 4
+      goldCost: 100
+      gainMultiplier: 2.5
     - levelUpgrade: 5
-      goldCost: 250
-      gainMultiplier: 2.2
+      goldCost: 200
+      gainMultiplier: 3

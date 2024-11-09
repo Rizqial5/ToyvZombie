@@ -18,15 +18,16 @@ namespace TvZ.Core
         
        public void GameOver()
        {
-            //timerCountDown = FindAnyObjectByType<TimerCountDown>();
+            timerCountDown = FindAnyObjectByType<TimerCountDown>();
 
-            //gameOverUI.SetActive(true);
+            gameOverUI.SetActive(true);
 
-            //totalDayValueText.text = timerCountDown.GetComponent<TimeSystem>().dayElapsed.ToString();
+            totalDayValueText.text = timerCountDown.GetComponent<TimeSystem>().dayElapsed.ToString();
 
-            //timerCountDown.StopTimer();
-            ///
+            timerCountDown.StopTimer();
             
+
+
 
        }
     }

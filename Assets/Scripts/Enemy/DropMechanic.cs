@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TvZ.Management;
 using TvZ.Character;
+using TvZ.Core;
 
 namespace TvZ.Enemy
 {
@@ -36,8 +37,8 @@ namespace TvZ.Enemy
             {
                 resourcesStatSO.AddResources(resourcesDrop[i].resourcesEnum, resourcesDrop[i].amountDrop);
 
-                
-
+                NotificationSystem.Instance.SpawnNotifLeft(" Dropped " + resourcesDrop[i].resourcesEnum.ToString() + " : " + resourcesDrop[i].amountDrop.ToString());
+                //
                 inventoryUI.ShowResources();
             }
         }

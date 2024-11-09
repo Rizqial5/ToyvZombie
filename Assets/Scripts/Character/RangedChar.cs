@@ -40,7 +40,7 @@ namespace TvZ.Character
 
         private void Update()
         {
-            //if (!basePlayer.isPlayerOnField) return; cek apabila karakter sudah ada dilapangan
+            if (GameManager.Instance.isPaused) return;
 
             timeUntilFired += Time.deltaTime;
 

@@ -9,7 +9,9 @@ namespace TvZ.Management
     {
         [SerializeField] ResourcesStatSO resourcesStatSO;
         [SerializeField] UpgradeProgressionSO progressionSO;
-        [SerializeField] float incomePerDay = 100;
+        [SerializeField] float incomePerDay = 50;
+
+        [SerializeField] float blueprintGained = 1;
 
         UpgradeLevelStatus upgradeLevelStatus;
 
@@ -24,6 +26,11 @@ namespace TvZ.Management
             print("Gold Multiplier = " + multiplierAmount + "x ");
 
             resourcesStatSO.AddResources(ResourcesEnum.Gold,incomePerDay * multiplierAmount);
+        }
+
+        public void GainBluePrint()
+        {
+            resourcesStatSO.AddResources(ResourcesEnum.BluePrint, blueprintGained);
         }
 
 

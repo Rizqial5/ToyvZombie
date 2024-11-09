@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using TvZ.Enemy;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -22,6 +23,7 @@ namespace TvZ.TimeMechanic
         private bool isPaused = false;
         private bool isStopped;
         private TimeSpan remainingTime;
+        private RepeatedAction repeatedAction;
 
         public UnityEvent onTimerEnd; 
 
@@ -37,7 +39,11 @@ namespace TvZ.TimeMechanic
             }
         }
 
-        
+        private void Start()
+        {
+            repeatedAction = GetComponent<RepeatedAction>();
+        }
+
         public void StartCountdown()
         {
             endTime = DateTime.Now.AddSeconds(countdownTime); 
@@ -50,8 +56,10 @@ namespace TvZ.TimeMechanic
         {
             
 
-            TimeSpan remainingTime = endTime - DateTime.Now; 
+            TimeSpan remainingTime = endTime - (DateTime.Now); 
 
+
+            
             if (remainingTime.TotalSeconds <= 0)
             {
                 isCountingDown = false;
@@ -84,7 +92,7 @@ namespace TvZ.TimeMechanic
                 isPaused = false;
                 endTime = DateTime.Now.Add(remainingTime); 
             }
-
+            //
             ChangeButtonActive();
         }
 

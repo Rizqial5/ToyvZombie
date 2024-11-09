@@ -51,7 +51,7 @@ namespace TvZ.Upgrade
                 SetUpgradeCard(item, spawnedCard, resourcesStatSO.GetImage(item));
 
                 upgradeCardSpawnedList.Add(spawnedCard);
-
+                //
 
             }
 
@@ -108,10 +108,12 @@ namespace TvZ.Upgrade
                 timeSystem = FindAnyObjectByType<TimeSystem>();
                 timeSystem.onDayChanged.AddListener(() => { UpgradeProgress(cardUpgrade, dayUpgrade, resourcesEnum, newLevel); });
 
+                resourcesStatSO.AddResources(resourcesEnum, -upgradeProgressionSO.GetUpgradeLevelCost(resourcesEnum, newLevel));
+
             }
             else
             {
-                NotificationSystem.Instance.SpawnNotif("Gold Tidak Cukup");
+                NotificationSystem.Instance.SpawnNotifRight("Gold Tidak Cukup");
                 
             }
 
@@ -128,7 +130,7 @@ namespace TvZ.Upgrade
 
                 if(!isNotif)
                 {
-                    NotificationSystem.Instance.SpawnNotif("Upgrade Completed");
+                    NotificationSystem.Instance.SpawnNotifRight("Upgrade Completed");
                     isNotif = true;
                 }
                 

@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -92.3}
-  m_SizeDelta: {x: 439.8, y: 50.0035}
+  m_AnchoredPosition: {x: -0.13858, y: -54.823}
+  m_SizeDelta: {x: 321.24, y: 50.832}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8783211318426010392
 CanvasRenderer:
@@ -137,8 +137,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.2826, y: 1.0249}
-  m_SizeDelta: {x: 428.5178, y: 220.9325}
+  m_AnchoredPosition: {x: -0.138, y: -0.4419}
+  m_SizeDelta: {x: 321.2379, y: 159.595}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4462843662915164841
 CanvasRenderer:
@@ -252,7 +252,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: -856673202, guid: 33ec747c3db6532428a7b0a420e3f23e, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -386,8 +386,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -103, y: -92.301}
-  m_SizeDelta: {x: -234.6909, y: -185.9}
+  m_AnchoredPosition: {x: -77.134, y: -55.5}
+  m_SizeDelta: {x: -188.91, y: -138.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1920016449682920792
 CanvasRenderer:
@@ -444,8 +444,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20.4
+  m_fontSizeBase: 20.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -521,8 +521,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -97.9447, y: 4.5848}
-  m_SizeDelta: {x: 625, y: 625}
+  m_AnchoredPosition: {x: -87, y: 8.6792}
+  m_SizeDelta: {x: 680.6315, y: 680.6315}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6003522492645498998
 CanvasRenderer:
@@ -547,7 +547,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 200, y: 200, z: 200, w: 200}
+  m_RaycastPadding: {x: 257.8, y: 254.7, z: 200, w: 272.4}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

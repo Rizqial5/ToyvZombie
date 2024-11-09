@@ -12,6 +12,8 @@ namespace TvZ.Character
         private DetectionArea detectionArea;
         private Animator animator;
 
+        [SerializeField] float animatorSpeed = 1;
+
         private void Awake()
         {
             detectionArea = GetComponentInChildren<DetectionArea>();
@@ -23,10 +25,23 @@ namespace TvZ.Character
         private void Start()
         {
             damagePoint = charStatSO.GetCharStat(StatEnum.Damage);
+            animator.speed = animatorSpeed;
         }
         private void Update()
         {
-            if(detectionArea.isDetected)
+            
+
+            if (GameManager.Instance.isPaused)
+            {
+                animator.speed = 0;
+            }
+            else if (!GameManager.Instance.isPaused)
+            {
+                animator.speed = animatorSpeed;
+
+            }
+
+            if (detectionArea.isDetected)
             {
                 animator.SetBool("isAttack", true);
 

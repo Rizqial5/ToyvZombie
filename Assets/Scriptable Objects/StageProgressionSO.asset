@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ce6e59b94f3ed4cb9f682d15f832c2, type: 3}
+  m_Name: StageProgressionSO
+  m_EditorClassIdentifier: 
+  stageLevels:
+  - dayLevel: 1
+    enemySpawnedList:
+    - {fileID: 11400000, guid: 332fec6ff0f3fa74894c9afc92d785a3, type: 2}
+  - dayLevel: 2
+    enemySpawnedList:
+    - {fileID: 11400000, guid: 332fec6ff0f3fa74894c9afc92d785a3, type: 2}
+  - dayLevel: 3
+    enemySpawnedList:
+    - {fileID: 11400000, guid: 332fec6ff0f3fa74894c9afc92d785a3, type: 2}
+  - dayLevel: 4
+    enemySpawnedList:
+    - {fileID: 11400000, guid: 332fec6ff0f3fa74894c9afc92d785a3, type: 2}
+  - dayLevel: 5
+    enemySpawnedList:
+    - {fileID: 11400000, guid: 332fec6ff0f3fa74894c9afc92d785a3, type: 2}
+    - {fileID: 11400000, guid: a2e4218b825e0d545aced4f0b7f23f41, type: 2}
+  - dayLevel: 6
+    enemySpawnedList:
+    - {fileID: 11400000, guid: 332fec6ff0f3fa74894c9afc92d785a3, type: 2}
+    - {fileID: 11400000, guid: a2e4218b825e0d545aced4f0b7f23f41, type: 2}
+  - dayLevel: 7
+    enemySpawnedList:
+    - {fileID: 11400000, guid: 332fec6ff0f3fa74894c9afc92d785a3, type: 2}
+    - {fileID: 11400000, guid: a2e4218b825e0d545aced4f0b7f23f41, type: 2}
+  - dayLevel: 8
+    enemySpawnedList:
+    - {fileID: 11400000, guid: 332fec6ff0f3fa74894c9afc92d785a3, type: 2}
+    - {fileID: 11400000, guid: a2e4218b825e0d545aced4f0b7f23f41, type: 2}
+    - {fileID: 11400000, guid: 711e5181d02c2244182bc13d53edd54b, type: 2}
+  - dayLevel: 9
+    enemySpawnedList:
+    - {fileID: 11400000, guid: 332fec6ff0f3fa74894c9afc92d785a3, type: 2}
+    - {fileID: 11400000, guid: a2e4218b825e0d545aced4f0b7f23f41, type: 2}
+    - {fileID: 11400000, guid: 711e5181d02c2244182bc13d53edd54b, type: 2}
+  - dayLevel: 10
+    enemySpawnedList:
+    - {fileID: 11400000, guid: 332fec6ff0f3fa74894c9afc92d785a3, type: 2}
+    - {fileID: 11400000, guid: a2e4218b825e0d545aced4f0b7f23f41, type: 2}
+    - {fileID: 11400000, guid: 711e5181d02c2244182bc13d53edd54b, type: 2}

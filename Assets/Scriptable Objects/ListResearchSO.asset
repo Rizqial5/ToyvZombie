@@ -17,18 +17,18 @@ MonoBehaviour:
     charDesc: Unlock Toy Archer
     researchRequirements:
     - resourcesEnum: 3
-      requiredAmount: 10
+      requiredAmount: 1
     - resourcesEnum: 0
-      requiredAmount: 10
+      requiredAmount: 5
   - charStat: {fileID: 11400000, guid: 9a360ce02e1a4694c841df144cc04bc8, type: 2}
     charDesc: Unlock Toy Lancer
     researchRequirements:
     - resourcesEnum: 3
-      requiredAmount: 50
+      requiredAmount: 1
     - resourcesEnum: 0
-      requiredAmount: 10
+      requiredAmount: 4
   listResourceResearch:
   - resourcesCategroy: 3
     researchResourceDesc:
       resourceFunction: Unlock Toy Research
-      goldRequirement: 100
+      goldRequirement: 50

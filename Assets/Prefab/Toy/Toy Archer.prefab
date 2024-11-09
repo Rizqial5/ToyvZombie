@@ -141,4 +141,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charStatSO: {fileID: 11400000, guid: 0fc01da45db19a1489621ba43dc6dbc1, type: 2}
   bulletPrefab: {fileID: 2206321282944862995, guid: bc69c96daa1162f40a2436072961daab, type: 3}
-  bulletPerSecond: 2
+  bulletPerSecond: 1

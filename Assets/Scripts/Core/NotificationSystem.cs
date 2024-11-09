@@ -9,7 +9,8 @@ namespace TvZ.Core
     {
 
         [SerializeField] GameObject notifPanel;
-        [SerializeField] Transform notifTransform;
+        [SerializeField] Transform notifTransformRight;
+        [SerializeField] Transform notifTransformLeft;
         [SerializeField] float timerNotif = 1f;
 
         public static NotificationSystem Instance;
@@ -28,15 +29,27 @@ namespace TvZ.Core
             }
         }
 
-        public void SpawnNotif(string notifText)
+        public void SpawnNotifRight(string notifText)
         {
             if (notifPanel == null) return;
             
-            GameObject spawnedNotif = Instantiate(notifPanel,notifTransform);
+            GameObject spawnedNotif = Instantiate(notifPanel,notifTransformRight);
 
             spawnedNotif.GetComponentInChildren<TextMeshProUGUI>().text = notifText;    
 
             Destroy(spawnedNotif,timerNotif);
+
+
+        }
+        public void SpawnNotifLeft(string notifText)
+        {
+            if (notifPanel == null) return;
+
+            GameObject spawnedNotif = Instantiate(notifPanel, notifTransformLeft);
+
+            spawnedNotif.GetComponentInChildren<TextMeshProUGUI>().text = notifText;
+
+            Destroy(spawnedNotif, timerNotif);
 
 
         }

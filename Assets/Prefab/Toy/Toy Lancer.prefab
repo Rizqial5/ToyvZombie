@@ -132,3 +132,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charStatSO: {fileID: 11400000, guid: 9a360ce02e1a4694c841df144cc04bc8, type: 2}
+  animatorSpeed: 1

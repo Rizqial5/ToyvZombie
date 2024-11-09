@@ -32,7 +32,7 @@ namespace TvZ.Character
                 if (resourcesStatSO.GetResources(item) >= statChar.GetResourceRequiredAmount(item))
                 {
                     resourceEnoughTotal.Add(true);
-                    print(true);
+                    
                 }else
                 {
                     resourceEnoughTotal.Add(false);
