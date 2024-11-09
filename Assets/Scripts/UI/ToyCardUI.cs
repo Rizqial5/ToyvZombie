@@ -10,6 +10,8 @@ public class ToyCardUI : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] Transform descLayout;
     [SerializeField] Image cardImage;
+    [SerializeField] Image heroImage;
+    
 
     
 
@@ -23,13 +25,16 @@ public class ToyCardUI : MonoBehaviour
         this.statSO = statSO;
     }
 
-    public void SetToyCardDesc(float resourcesAmount, GameObject descObject)
+    public void SetToyCardDesc(float resourcesAmount, GameObject descObject, Color bgColor, Sprite toyImage, Sprite resourcesImage)
     {
         if (descObjectSpawned.Count > 0) return;
 
         GameObject spawnedDesc = Instantiate(descObject, descLayout);
 
-        //spawnedDesc.GetComponentInChildren<Image>().sprite = resourcesImage;
+        cardImage.color = bgColor;
+        heroImage.sprite = toyImage;
+
+        spawnedDesc.GetComponentInChildren<Image>().sprite = resourcesImage;
         spawnedDesc.GetComponentInChildren<TextMeshProUGUI>().text = resourcesAmount.ToString();
 
         descObjectSpawned.Add(spawnedDesc);

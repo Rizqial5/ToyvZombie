@@ -8,12 +8,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+
 namespace TvZ.Research
 {
     public class ResearchItem : MonoBehaviour
     {
         [SerializeField] TextMeshProUGUI itemName;
         [SerializeField] TextMeshProUGUI statusResearch;
+        [SerializeField] GameObject statusImage;
+        [SerializeField] Image researchImage;
+        
 
         public ResearchCategory researchCategory {  get; private set; }
 
@@ -38,13 +42,16 @@ namespace TvZ.Research
              timeSystem = FindAnyObjectByType<TimeSystem>();
         }
         //Set function untuk mengeset atribut research (resources requirements, teks)
-        public void SetResearchChar(string nameItem, List<ResourcesEnum> resourcesCategoriesRequired, ResourcesStatSO resourcesStat, ListResearchSO listResearchSO, StatSO statSO)
+        public void SetResearchChar(string nameItem, List<ResourcesEnum> resourcesCategoriesRequired, ResourcesStatSO resourcesStat, ListResearchSO listResearchSO, StatSO statSO, Sprite researchImage)
         {
             itemName.text = nameItem;
             resourceCategories = resourcesCategoriesRequired;
             resourcesStatSO = resourcesStat;
             statChar = statSO;
             listResearch = listResearchSO;
+            this.researchImage.GetComponent<RectTransform>().localScale = new Vector3(4, 4, 1);
+            this.researchImage.raycastPadding = new Vector4(80, 80, 80, 80);
+            this.researchImage.sprite = researchImage;
 
             researchCategory = ResearchCategory.CharResearch;
 
@@ -52,7 +59,7 @@ namespace TvZ.Research
 
         }
 
-        public void SetResearchResource(ResourcesStatSO resourcesStat, ListResearchSO listResearchSO, ResourcesEnum resourcesEnum)
+        public void SetResearchResource(ResourcesStatSO resourcesStat, ListResearchSO listResearchSO, ResourcesEnum resourcesEnum, Sprite researchImage)
         {
             itemName.text = resourcesEnum.ToString();
 
@@ -60,6 +67,11 @@ namespace TvZ.Research
             listResearch = listResearchSO;
             resourcesStatSO = resourcesStat;
             unlockAbleResources = resourcesEnum;
+
+            this.researchImage.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+            this.researchImage.raycastPadding = new Vector4(1, 1, 1, 1);
+            this.researchImage.sprite = researchImage;
+            
 
             GetComponent<Button>().onClick.AddListener(() => { ShowReseachDesc(ResearchCategory.ResourceResearch); });
         }
@@ -93,7 +105,7 @@ namespace TvZ.Research
 
             ChangeResearchStatus("Researching");
             GetComponent<Button>().enabled = false;
-            GetComponent<Image>().color = Color.gray;
+            
 
             
 
@@ -176,6 +188,7 @@ namespace TvZ.Research
         public void ChangeResearchStatus(string statusText)
         {
             statusResearch.text = statusText;
+            statusImage.SetActive(true);
         }
 
         

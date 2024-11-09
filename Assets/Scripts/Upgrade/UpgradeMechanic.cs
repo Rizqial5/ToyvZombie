@@ -39,7 +39,7 @@ namespace TvZ.Upgrade
             {
                 UpgradeCard spawnedCard = Instantiate(cardUpgradePrefab, cardLayoutTransform);
 
-                SetUpgradeCard(item, spawnedCard);
+                SetUpgradeCard(item, spawnedCard, resourcesStatSO.GetImage(item));
 
                 upgradeCardSpawnedList.Add(spawnedCard);
 
@@ -54,11 +54,11 @@ namespace TvZ.Upgrade
 
             foreach (UpgradeCard item in upgradeCardSpawnedList)
             {
-                SetUpgradeCard(item.upgradeResourcesType, item);
+                SetUpgradeCard(item.upgradeResourcesType, item, resourcesStatSO.GetImage(item.upgradeResourcesType));
             }
         }
 
-        private void SetUpgradeCard(ResourcesEnum item, UpgradeCard spawnedCard)
+        private void SetUpgradeCard(ResourcesEnum item, UpgradeCard spawnedCard, Sprite upgradeImage)
         {
             int levelStatus = upgradeLevelStatus.GetLevelResourcesNow(item);
             int maxLevel = upgradeProgressionSO.GetUpgradeMaxLevel(item);
@@ -77,7 +77,7 @@ namespace TvZ.Upgrade
             string costText = "Cost Gold : " + upgradeProgressionSO.GetUpgradeLevelCost(item, nextLevel).ToString();
             string cardDesc = upgradeProgressionSO.GetUpgradeDesc(item) + " " + upgradeProgressionSO.GetUpgradeLevelMultiplier(item, nextLevel).ToString("0.0");
 
-            spawnedCard.SetUpgradeCard(item, cardDesc, costText);
+            spawnedCard.SetUpgradeCard(item, cardDesc, costText,upgradeImage);
 
             spawnedCard.SetUpgradeButton(() => { UpgradeResources(spawnedCard, item, levelStatus); });
         }

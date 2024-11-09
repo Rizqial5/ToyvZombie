@@ -14,10 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceCategories:
   - category: 0
+    resourcesImage: {fileID: 1824977124, guid: ff381e3f80d97c74dbb24a1c10b0f8b8, type: 3}
     resourcesTotal: 10000
   - category: 2
+    resourcesImage: {fileID: 823149790, guid: ff381e3f80d97c74dbb24a1c10b0f8b8, type: 3}
     resourcesTotal: 10000
   - category: 3
+    resourcesImage: {fileID: 821388729, guid: ff381e3f80d97c74dbb24a1c10b0f8b8, type: 3}
     resourcesTotal: 10000
   - category: 1
+    resourcesImage: {fileID: 886724227, guid: ff381e3f80d97c74dbb24a1c10b0f8b8, type: 3}
     resourcesTotal: 10000

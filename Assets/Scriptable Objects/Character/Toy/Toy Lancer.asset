@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Toy Lancer
   m_EditorClassIdentifier: 
   charPrefab: {fileID: 8178358675800531461, guid: 82bddaa93ea2422479553c9a0ef6f7df, type: 3}
+  toyImage: {fileID: 246411190, guid: 079bb413dd8a73643aa517a19d5112a4, type: 3}
+  bgColor: {r: 0.28677022, g: 0.81886786, b: 0.20857947, a: 1}
   statCategories:
   - statEnum: 0
     value: 100

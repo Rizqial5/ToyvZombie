@@ -12,16 +12,22 @@ namespace TvZ.Research
     public class ResearchMechanic : MonoBehaviour
     {
         [Header("UI Element")]
-        [SerializeField] GameObject researchDescUI;
         [SerializeField] ResearchItem cardResearchPrefab;
         [SerializeField] Transform cardSpawnParent;
 
         [Header("UI Research Description Elemment")]
         [SerializeField] Transform researchRequiredLayout;
         [SerializeField] TextMeshProUGUI researchRequiredDesc;
-        [SerializeField] TextMeshProUGUI researchFunctionDesc;
+        
 
+        [Header("Research Desc UI")]
+        [SerializeField] GameObject researchDescUI;
+        [SerializeField] TextMeshProUGUI researchFunctionDesc;
+        [SerializeField] Image researchImage;
+        [SerializeField] Image researchDescImage;
         public Button researchButton;
+
+
 
         [Header("Data")]
         [SerializeField] ResourcesStatSO resourcesStatSO;
@@ -67,7 +73,7 @@ namespace TvZ.Research
             cardSpawned.GetComponent<Button>().onClick.AddListener(() => { ShowCharResearchDesc(item, resourcesEnums); });
 
 
-            cardSpawned.SetResearchChar(item.name, resourcesEnums, resourcesStatSO, listResearch, item);
+            cardSpawned.SetResearchChar(item.name, resourcesEnums, resourcesStatSO, listResearch, item, item.toyImage);
 
             listResearchSpawned.Add(cardSpawned);
         }
@@ -98,7 +104,7 @@ namespace TvZ.Research
             cardSpawned.GetComponent<Button>().onClick.AddListener(ShowResearchDescUI);
             cardSpawned.GetComponent<Button>().onClick.AddListener(() => { ShowResourceResearchDesc(item); });
 
-            cardSpawned.SetResearchResource(resourcesStatSO, listResearch, item);
+            cardSpawned.SetResearchResource(resourcesStatSO, listResearch, item, resourcesStatSO.GetImage(item));
 
 
 
@@ -115,28 +121,39 @@ namespace TvZ.Research
         {
             foreach (ResourcesEnum item in resourceEnums)
             {
-                TextMeshProUGUI spawnedDesc = SpawnDescriptionResearch();
+                TextMeshProUGUI spawnedDesc = SpawnDescriptionResearch(item);
 
                 spawnedDesc.text = item.ToString() + " : " + listResearch.GetCharResearchRequiredAmount(statChar, item);
 
             }
 
+            researchDescImage.sprite = statChar.toyImage;
+            researchDescImage.GetComponent<RectTransform>().localScale = new Vector3(4, 4, 1);
             researchFunctionDesc.text = listResearch.GetResearchCharDesc(statChar);
 
         }
 
         public void ShowResourceResearchDesc(ResourcesEnum resourcesEnum)
         {
-            TextMeshProUGUI spawnedDesc = SpawnDescriptionResearch();
+            TextMeshProUGUI spawnedDesc = SpawnDescriptionResearch(ResourcesEnum.Gold);
 
             spawnedDesc.text = "Gold : " + listResearch.GetGoldResearchRequirements(resourcesEnum);
+
+            
             researchFunctionDesc.text = listResearch.GetResourceDesc(resourcesEnum);
+
+            researchDescImage.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
+            researchDescImage.sprite = resourcesStatSO.GetImage(resourcesEnum);
+
 
         }
 
-        private TextMeshProUGUI SpawnDescriptionResearch()
+        private TextMeshProUGUI SpawnDescriptionResearch(ResourcesEnum resourcesEnum)
         {
             TextMeshProUGUI spawnedDesc = Instantiate(researchRequiredDesc, researchRequiredLayout);
+
+            spawnedDesc.GetComponentInChildren<Image>().sprite = resourcesStatSO.GetImage(resourcesEnum);
+
             listDescSpawned.Add(spawnedDesc);
             return spawnedDesc;
         }
@@ -182,5 +199,7 @@ namespace TvZ.Research
             }
 
         }
+
+        
     }
 }

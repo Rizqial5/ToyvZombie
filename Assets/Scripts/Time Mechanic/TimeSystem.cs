@@ -26,6 +26,8 @@ namespace TvZ.TimeMechanic
 
         [Header("Menu UI")]
         [SerializeField] GameObject daytimeMenuUI;
+        [SerializeField] TextMeshProUGUI dayTotal;
+        [SerializeField] TextMeshProUGUI dayStatus;
 
         [Header("Debug Option")]
         [SerializeField] Vector2 positionDebug = new Vector2(100, 0);
@@ -36,7 +38,7 @@ namespace TvZ.TimeMechanic
 
         public GoldIncome goldIncome { get; private set; }
 
-        private int dayElapsed;
+        public int dayElapsed {  get; private set; }
 
         public UnityEvent onDayChanged;
         
@@ -91,10 +93,23 @@ namespace TvZ.TimeMechanic
             daytimeMenuUI.SetActive(isEnable);
         }
 
+        public void StartDayCount()
+        {
+            dayElapsed = 1;
+            dayTotal.text = "Day : " + dayElapsed.ToString();
+        }
         public void AddCountDay()
         {
             dayElapsed += 1;
+
             onDayChanged.Invoke();
+        }
+
+        
+
+        public void ChangeDayStatus(string text)
+        {
+            dayStatus.text = text;
         }
 
         

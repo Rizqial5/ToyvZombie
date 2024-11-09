@@ -16,23 +16,7 @@ namespace TvZ.Enemy
         {
             houseStat = FindAnyObjectByType<HouseStat>();
         }
-        private void Start()
-        {
-            //InvokeRepeating("GenerateEnemy", 2f, 2f);
-        }
-
-        private void Update()
-        {
-            //if (Input.touchCount > 0)
-            //{
-            //    Touch touch = Input.GetTouch(0);
-
-            //    if (touch.phase == TouchPhase.Began)
-            //    {
-            //        GenerateEnemy();
-            //    }
-            //}
-        }
+        
 
         private void GenerateEnemy()
         {

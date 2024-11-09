@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 namespace TvZ.Management
 {
@@ -16,6 +16,11 @@ namespace TvZ.Management
         [SerializeField] TextMeshProUGUI goldVaueText;
         [SerializeField] TextMeshProUGUI bluePrintValueText;
 
+        [Header("Image UI")]
+        [SerializeField] Image toyFragmentImage;
+        [SerializeField] Image toyEnergyImage;
+        [SerializeField] Image goldImage;
+        [SerializeField] Image bluePrintImage;
         private void Start()
         {
             
@@ -32,6 +37,11 @@ namespace TvZ.Management
             toyEnegrgyValueText.text = resourcesStatSO.GetResources(ResourcesEnum.ToyEnergy).ToString();
             goldVaueText.text = resourcesStatSO.GetResources(ResourcesEnum.Gold).ToString();
             bluePrintValueText.text = resourcesStatSO.GetResources(ResourcesEnum.BluePrint).ToString();
+
+            toyFragmentImage.sprite = resourcesStatSO.GetImage(ResourcesEnum.ToyFragment);
+            toyEnergyImage.sprite = resourcesStatSO.GetImage(ResourcesEnum.ToyEnergy);
+            goldImage.sprite = resourcesStatSO.GetImage(ResourcesEnum.Gold);
+            bluePrintImage.sprite = resourcesStatSO.GetImage(ResourcesEnum.BluePrint);
         }
 
 

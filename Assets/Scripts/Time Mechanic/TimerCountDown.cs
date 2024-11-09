@@ -10,6 +10,7 @@ namespace TvZ.TimeMechanic
 {
     public class TimerCountDown : MonoBehaviour
     {
+        
         [SerializeField] TextMeshProUGUI timerText;             
         [SerializeField] int countdownTime = 300;
 
@@ -19,6 +20,7 @@ namespace TvZ.TimeMechanic
         private DateTime endTime;          
         private bool isCountingDown = false;
         private bool isPaused = false;
+        private bool isStopped;
         private TimeSpan remainingTime;
 
         public UnityEvent onTimerEnd; 
@@ -27,6 +29,8 @@ namespace TvZ.TimeMechanic
 
         void Update()
         {
+            if(isStopped) return;
+
             if (isCountingDown && !isPaused)
             {
                 UpdateTimer();
@@ -44,6 +48,8 @@ namespace TvZ.TimeMechanic
         
         void UpdateTimer()
         {
+            
+
             TimeSpan remainingTime = endTime - DateTime.Now; 
 
             if (remainingTime.TotalSeconds <= 0)
@@ -80,6 +86,11 @@ namespace TvZ.TimeMechanic
             }
 
             ChangeButtonActive();
+        }
+
+        public void StopTimer()
+        {
+            isStopped = true;
         }
 
         public void ChangeButtonActive()

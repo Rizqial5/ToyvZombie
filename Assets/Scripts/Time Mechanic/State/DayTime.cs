@@ -13,7 +13,9 @@ namespace TvZ.TimeMechanic
         public override void EnterState()
         {
             timeSystem.ChangeStatusButton("Skip to Night", true);
+            timeSystem.ChangeDayStatus("Day Time");
 
+            timeSystem.StartDayCount();
             timeSystem.timerCountDown.StartCountdown();
             timeSystem.timerCountDown.onTimerEnd.AddListener(() => { timeStateMachine.ChangeState(timeSystem.nightTimeState); });
         }

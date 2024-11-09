@@ -17,15 +17,18 @@ namespace TvZ.UI
         [SerializeField] TextMeshProUGUI upgradeCostText;
         [SerializeField] Button upgradeButton;
         [SerializeField] TextMeshProUGUI completedDesc;
+        [SerializeField] GameObject competedFilterImage;
 
         private bool isUpgrading;
         public ResourcesEnum upgradeResourcesType {  get; private set; }
 
-        public void SetUpgradeCard(ResourcesEnum cardName, string cardDesc, string upgradeCost)
+        public void SetUpgradeCard(ResourcesEnum cardName, string cardDesc, string upgradeCost, Sprite upgradeImage)
         {
             nameUpgrade.text = cardName.ToString();
             upgradeDesc.text = cardDesc;
             upgradeCostText.text = upgradeCost;
+
+            this.upgradeImage.sprite = upgradeImage;
 
             upgradeResourcesType = cardName;
         }
@@ -40,7 +43,7 @@ namespace TvZ.UI
             completedDesc.text = "Max Upgrade";
 
             upgradeButton.onClick.RemoveAllListeners();
-            GetComponent<Image>().color = Color.gray;
+            competedFilterImage.SetActive(true);
             upgradeButton.enabled = false;
         }
 
@@ -50,13 +53,13 @@ namespace TvZ.UI
 
             if(isUpgrading)
             {
-                GetComponent<Image>().color = Color.gray;
+                competedFilterImage.SetActive(true);
                 completedDesc.text = "Upgrading...";
                 upgradeButton.enabled = false;
             }
             else
             {
-                GetComponent<Image>().color = Color.white;
+                competedFilterImage.SetActive(false);
                 completedDesc.text = string.Empty;
                 upgradeButton.enabled = true;
             }
