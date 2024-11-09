@@ -20,6 +20,8 @@ namespace TvZ.Core
        {
             timerCountDown = FindAnyObjectByType<TimerCountDown>();
 
+            GameManager.Instance.SetPause(true);
+
             gameOverUI.SetActive(true);
 
             totalDayValueText.text = timerCountDown.GetComponent<TimeSystem>().dayElapsed.ToString();

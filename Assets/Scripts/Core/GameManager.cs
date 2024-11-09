@@ -75,4 +75,9 @@ public class GameManager : MonoBehaviour
 
 
     }
+
+    public void SetPause(bool setPause)
+    {
+        isPaused = setPause;
+    }
 }
