@@ -62,7 +62,7 @@ namespace TvZ.Core
             checkRequiredResourceChar.CheckResource();
             if(!checkRequiredResourceChar.isResourceAvail)
             {
-                print("Resource tidak cukup");
+                NotificationSystem.Instance.SpawnNotif("Resource tidak cukup");
                 return;
             }
             // Buat objek yang didrag dari prefab
@@ -110,7 +110,8 @@ namespace TvZ.Core
             checkRequiredResourceChar.CheckResource();
             if (!checkRequiredResourceChar.isResourceAvail)
             {
-                print("Resource tidak cukup");
+
+                
                 return;
             }
 

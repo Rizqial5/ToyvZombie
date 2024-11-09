@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7614706635501434848
+--- !u!1001 &8770760075804805566
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -53,12 +53,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2342187133181403082, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.21779285
+      value: 1.6109946
       objectReference: {fileID: 0}
     - target: {fileID: 2342187133181403082, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.018
+      value: -1.41
       objectReference: {fileID: 0}
+    - target: {fileID: 2861026273330768546, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
+      propertyPath: charStatSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 711e5181d02c2244182bc13d53edd54b, type: 2}
+    - target: {fileID: 4131893011613816273, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a2fdc9b4f1a81384b87d8c9640cdc160, type: 2}
     - target: {fileID: 4953251816855748265, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
       propertyPath: resourcesDrop.Array.size
       value: 3
@@ -69,47 +77,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4953251816855748265, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
       propertyPath: resourcesDrop.Array.data[1].amountDrop
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4953251816855748265, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
       propertyPath: resourcesDrop.Array.data[2].amountDrop
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4953251816855748265, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
       propertyPath: resourcesDrop.Array.data[1].resourcesEnum
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4953251816855748265, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
       propertyPath: resourcesDrop.Array.data[2].resourcesEnum
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5840159554902255996, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
-      propertyPath: charHealth
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5840159554902255996, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
       propertyPath: charStatSO
       value: 
-      objectReference: {fileID: 11400000, guid: 332fec6ff0f3fa74894c9afc92d785a3, type: 2}
-    - target: {fileID: 5842060066469281372, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 711e5181d02c2244182bc13d53edd54b, type: 2}
     - target: {fileID: 7776532860246885881, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 153189948, guid: b97339c9f5fc5a743815079851bf6b7c, type: 3}
-    - target: {fileID: 7776532860246885881, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1771859384, guid: ebaea9c3b34e48f45a531a63a507e782, type: 3}
     - target: {fileID: 7776532860246885881, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7829314210926016444, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}
       propertyPath: m_Name
-      value: Skeleton
+      value: Zombie Rider
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d30d5819031d3840891e62630e4f21b, type: 3}

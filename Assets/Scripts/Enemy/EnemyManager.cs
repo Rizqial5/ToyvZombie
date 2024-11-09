@@ -1,3 +1,4 @@
+using TvZ.Character;
 using TvZ.Core;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ namespace TvZ.Enemy
 {
     public class EnemyManager : MonoBehaviour
     {
-        [SerializeField] GameObject enemyPrefab;
+        [SerializeField] StatSO[] enemyPrefab;
 
         [SerializeField] Transform[] startLoc;
         [SerializeField] Transform[] finishLoc;
@@ -21,10 +22,11 @@ namespace TvZ.Enemy
         private void GenerateEnemy()
         {
             int randomInt = Random.Range(0, startLoc.Length);
+            int randomIntEnemies = Random.Range(0, enemyPrefab.Length);
 
             
 
-            GameObject spawnedEnemy = Instantiate(enemyPrefab, startLoc[randomInt].position,Quaternion.identity);
+            GameObject spawnedEnemy = Instantiate(enemyPrefab[randomIntEnemies].GetCharPrefab(), startLoc[randomInt].position,Quaternion.identity);
 
             spawnedEnemy.GetComponent<EnemyMovement>().SetEnemy(finishLoc[randomInt], houseStat.GameOver);
         }

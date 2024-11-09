@@ -1441,6 +1441,7 @@ RectTransform:
   - {fileID: 1569685272}
   - {fileID: 1452338608}
   - {fileID: 1103671550}
+  - {fileID: 1331059876}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3330,8 +3331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c40a98e16045e734f9cafce76cd83fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverUI: {fileID: 0}
-  totalDayValueText: {fileID: 0}
+  gameOverUI: {fileID: 1103671549}
+  totalDayValueText: {fileID: 1772914812}
 --- !u!1 &739637711
 GameObject:
   m_ObjectHideFlags: 0
@@ -4956,7 +4957,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1103671550
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5764,6 +5765,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301284831}
   m_CullTransparentMesh: 1
+--- !u!1 &1331059875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1331059876}
+  - component: {fileID: 1331059877}
+  m_Layer: 5
+  m_Name: Notif Layout
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1331059876
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331059875}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 368051982}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1039.9998, y: 117.31738}
+  m_SizeDelta: {x: 561.61, y: 594.2794}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1331059877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331059875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 567.8, y: 197.1}
+  m_Spacing: {x: 0, y: 0}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1001 &1335678078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5992,6 +6054,7 @@ GameObject:
   - component: {fileID: 1354176503}
   - component: {fileID: 1354176504}
   - component: {fileID: 1354176505}
+  - component: {fileID: 1354176506}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6011,7 +6074,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e551f876b0cd642b9302b1a27dc142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 363543195511341148, guid: 5a34d7db94279cc4b9328ae678e65d39, type: 3}
+  enemyPrefab:
+  - {fileID: 11400000, guid: 332fec6ff0f3fa74894c9afc92d785a3, type: 2}
+  - {fileID: 11400000, guid: a2e4218b825e0d545aced4f0b7f23f41, type: 2}
+  - {fileID: 11400000, guid: 711e5181d02c2244182bc13d53edd54b, type: 2}
   startLoc:
   - {fileID: 33870805}
   - {fileID: 1169401114}
@@ -6114,6 +6180,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedModifier: 100
+--- !u!114 &1354176506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354176499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1f0589b8f403a4e9d37e40209f1305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notifPanel: {fileID: 8571027842317962333, guid: 44df1302b4084004eba7df90c0dd647c, type: 3}
+  notifTransform: {fileID: 1331059876}
+  timerNotif: 0.5
 --- !u!1 &1395292711
 GameObject:
   m_ObjectHideFlags: 0

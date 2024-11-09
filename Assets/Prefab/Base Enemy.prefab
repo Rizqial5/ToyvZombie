@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 4131893011613816273}
   - component: {fileID: 5840159554902255996}
   - component: {fileID: 4953251816855748265}
+  - component: {fileID: 2861026273330768546}
   m_Layer: 0
   m_Name: Base Enemy
   m_TagString: Enemy
@@ -333,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84fa170ec2fa2db478c12cdacddfa838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charHealth: 0
+  charStatSO: {fileID: 0}
   onCharDie:
     m_PersistentCalls:
       m_Calls: []
@@ -351,3 +352,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourcesStatSO: {fileID: 11400000, guid: f3a49727a4bf9e04f826e34536c6a7ea, type: 2}
   resourcesDrop: []
+--- !u!114 &2861026273330768546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7829314210926016444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3714293e5b6ffa3488970ec28f0feb3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charStatSO: {fileID: 11400000, guid: 332fec6ff0f3fa74894c9afc92d785a3, type: 2}

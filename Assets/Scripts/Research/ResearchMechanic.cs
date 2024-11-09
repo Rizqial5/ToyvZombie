@@ -73,7 +73,7 @@ namespace TvZ.Research
             cardSpawned.GetComponent<Button>().onClick.AddListener(() => { ShowCharResearchDesc(item, resourcesEnums); });
 
 
-            cardSpawned.SetResearchChar(item.name, resourcesEnums, resourcesStatSO, listResearch, item, item.toyImage);
+            cardSpawned.SetResearchChar(item.name, resourcesEnums, resourcesStatSO, listResearch, item, item.charImage);
 
             listResearchSpawned.Add(cardSpawned);
         }
@@ -127,7 +127,7 @@ namespace TvZ.Research
 
             }
 
-            researchDescImage.sprite = statChar.toyImage;
+            researchDescImage.sprite = statChar.charImage;
             researchDescImage.GetComponent<RectTransform>().localScale = new Vector3(4, 4, 1);
             researchFunctionDesc.text = listResearch.GetResearchCharDesc(statChar);
 

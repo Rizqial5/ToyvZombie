@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TvZ.Core;
 using TvZ.Management;
 using TvZ.TimeMechanic;
 using TvZ.UI;
@@ -18,11 +19,19 @@ namespace TvZ.Upgrade
 
         private UpgradeLevelStatus upgradeLevelStatus;
         private TimeSystem timeSystem;
+        private bool isNotif;
+        
 
 
         private void Awake()
         {
             upgradeLevelStatus = GetComponent<UpgradeLevelStatus>();
+            
+        }
+
+        private void Start()
+        {
+            
         }
 
         private List<ResourcesEnum> upgradeResourcesList = new List<ResourcesEnum>();
@@ -80,6 +89,7 @@ namespace TvZ.Upgrade
             spawnedCard.SetUpgradeCard(item, cardDesc, costText,upgradeImage);
 
             spawnedCard.SetUpgradeButton(() => { UpgradeResources(spawnedCard, item, levelStatus); });
+            spawnedCard.SetUpgradeButton(() => { isNotif = false; });
         }
 
         
@@ -101,8 +111,8 @@ namespace TvZ.Upgrade
             }
             else
             {
-                print("Gold Tidak Cukup");
-
+                NotificationSystem.Instance.SpawnNotif("Gold Tidak Cukup");
+                
             }
 
 
@@ -116,6 +126,13 @@ namespace TvZ.Upgrade
             {
                 upgradeLevelStatus.SetLevelResources(resourcesEnum, newLevel);
 
+                if(!isNotif)
+                {
+                    NotificationSystem.Instance.SpawnNotif("Upgrade Completed");
+                    isNotif = true;
+                }
+                
+                //
                 cardUpgrade.SetUpgradeStatus(false);
 
                 

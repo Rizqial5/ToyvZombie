@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Toy Soldier
   m_EditorClassIdentifier: 
   charPrefab: {fileID: 8097926956563405879, guid: a04d0a3b06639a34ea04580b7a69cd7c, type: 3}
-  toyImage: {fileID: -1815241821, guid: f4509fbcf9348074c951e06f1d8689c4, type: 3}
+  charImage: {fileID: -1815241821, guid: f4509fbcf9348074c951e06f1d8689c4, type: 3}
   bgColor: {r: 0.86415094, g: 0.23315766, b: 0.23315766, a: 1}
   statCategories:
   - statEnum: 0
     value: 100
   - statEnum: 1
-    value: 50
+    value: 0
   requiredResources:
   - resourceEnum: 1
     requiredAmount: 20

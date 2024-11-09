@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Toy Archer
   m_EditorClassIdentifier: 
   charPrefab: {fileID: 5932357205250075242, guid: 67f384adbd4baee49995c29525888913, type: 3}
-  toyImage: {fileID: 1195733385, guid: fbcf70a535dfa6f498e921ab5a7def27, type: 3}
+  charImage: {fileID: -960258956, guid: fbcf70a535dfa6f498e921ab5a7def27, type: 3}
   bgColor: {r: 0.4906785, g: 0.32501957, b: 0.90188676, a: 1}
   statCategories:
   - statEnum: 0

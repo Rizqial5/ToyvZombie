@@ -51,7 +51,7 @@ namespace TvZ.UI
 
                 foreach (ResourcesEnum item in listToyAvailable[i].GetResoucesListRequired())
                 {
-                    toyCardSpawned.SetToyCardDesc(listToyAvailable[i].GetResourceRequiredAmount(item), descObject, listToyAvailable[i].bgColor, listToyAvailable[i].toyImage, resourcesStatSO.GetImage(item));
+                    toyCardSpawned.SetToyCardDesc(listToyAvailable[i].GetResourceRequiredAmount(item), descObject, listToyAvailable[i].bgColor, listToyAvailable[i].charImage, resourcesStatSO.GetImage(item));
                 }
 
                 listSpawned.Add(listToyAvailable[i]);

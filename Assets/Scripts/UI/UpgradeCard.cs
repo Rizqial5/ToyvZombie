@@ -36,6 +36,7 @@ namespace TvZ.UI
         public void SetUpgradeButton(UnityAction onClickButton)
         {
             upgradeButton.onClick.AddListener(onClickButton);
+            
         }
 
         public void SetUpgradeComplete()

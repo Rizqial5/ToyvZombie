@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using TvZ.Character;
+using TvZ.Core;
 using TvZ.Management;
 using TvZ.TimeMechanic;
 using UnityEngine;
@@ -17,6 +18,7 @@ namespace TvZ.Research
         [SerializeField] TextMeshProUGUI statusResearch;
         [SerializeField] GameObject statusImage;
         [SerializeField] Image researchImage;
+
         
 
         public ResearchCategory researchCategory {  get; private set; }
@@ -39,7 +41,8 @@ namespace TvZ.Research
 
         private void Start()
         {
-             timeSystem = FindAnyObjectByType<TimeSystem>();
+            timeSystem = FindAnyObjectByType<TimeSystem>();
+            
         }
         //Set function untuk mengeset atribut research (resources requirements, teks)
         public void SetResearchChar(string nameItem, List<ResourcesEnum> resourcesCategoriesRequired, ResourcesStatSO resourcesStat, ListResearchSO listResearchSO, StatSO statSO, Sprite researchImage)
@@ -101,7 +104,12 @@ namespace TvZ.Research
 
             
 
-            if (!isResourceAvailable) return;
+            if (!isResourceAvailable)
+            {
+                NotificationSystem.Instance.SpawnNotif("Resource Tidak Cukup");
+                //
+                return; 
+            }
 
             ChangeResearchStatus("Researching");
             GetComponent<Button>().enabled = false;
@@ -165,6 +173,7 @@ namespace TvZ.Research
             if(requiredDay <= 0)
             {
                 ChangeResearchStatus("Completed");
+                NotificationSystem.Instance.SpawnNotif("Research Completed");
                 
 
                 switch (researchCategory)
