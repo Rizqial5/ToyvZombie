@@ -25,11 +25,6 @@ namespace TvZ.Enemy
             detectionArea = GetComponentInChildren<DetectionArea>();
         }
 
-        private void Start()
-        {
-            GetComponent<CharStat>().onCharDie.AddListener(() => { speed = 0; });
-        }
-
         private void FixedUpdate()
         {
             if (GameManager.Instance.isPaused) return;
