@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TvZ.Core
 {
@@ -10,8 +11,18 @@ namespace TvZ.Core
 
         public float speedModifierGame { get; private set; } = 1f;
         public float speedAnimation { get; private set; } = 1f;
+        public float speedSpawn {  get; private set; } = 1f;
         private Animator[] animators;
 
+        [SerializeField] Button speedButton;
+        [SerializeField] Button normalButton;
+
+        private void Start()
+        {
+            speedAnimation = 1f;
+            speedModifierGame = 1f;
+            Time.timeScale = 1f;
+        }
         private void Awake()
         {
             if (Instance == null)
@@ -29,10 +40,24 @@ namespace TvZ.Core
         {
             if(setSpeed == 2)
             {
-                speedAnimation = 3f;
+                speedAnimation = 2f;
+                speedSpawn = 2f;
                 speedModifierGame = 5f;
                 Time.timeScale = 3f;
+
+            } else if(setSpeed == 1)
+            {
+                speedAnimation = 1f;
+                speedSpawn = 1f;
+                speedModifierGame = 1f;
+                Time.timeScale = 1f;
             }
+        }
+
+        public void SetButtonActive(bool active)
+        {
+            speedButton.gameObject.SetActive(active);
+            normalButton.gameObject.SetActive(!active);
         }
 
     }

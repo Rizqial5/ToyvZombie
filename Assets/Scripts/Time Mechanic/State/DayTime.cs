@@ -12,12 +12,17 @@ namespace TvZ.TimeMechanic
 
         public override void EnterState()
         {
-            timeSystem.ChangeStatusButton("Skip to Night", true);
+            timeSystem.ChangeStatusButton("Skip to Night");
+
             timeSystem.ChangeDayStatus("Day Time");
 
             timeSystem.StartDayCount();
             timeSystem.timerCountDown.StartCountdown();
-            timeSystem.timerCountDown.onTimerEnd.AddListener(() => { timeStateMachine.ChangeState(timeSystem.nightTimeState); });
+            timeSystem.timerCountDown.onTimerEnd.AddListener(() => 
+            {
+                timeSystem.SkipDay();
+                
+            });
             //
         }
 
@@ -35,7 +40,7 @@ namespace TvZ.TimeMechanic
 
         public override void ExitState()
         {
-            base.ExitState();
+            timeSystem.StartNightTime();
         }
     }
 }

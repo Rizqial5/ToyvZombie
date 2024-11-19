@@ -12,21 +12,21 @@ namespace TvZ.TimeMechanic
 
         public override void EnterState()
         {
-            timeSystem.ChangeStatusButton("Skip To Day", false);
+            
 
             timeSystem.ChangeDayStatus("Night Time");
 
             timeSystem.timerCountDown.StartCountdown();
             timeSystem.timerCountDown.onTimerEnd.AddListener(() => { timeStateMachine.ChangeState(timeSystem.dayTimeState); });
 
-            timeSystem.repeatedAction.StartRepeatingAction();
+            //timeSystem.repeatedAction.StartRepeatingAction();
         }
 
 
         public override void FrameUpdate()
         {
-            timeSystem.repeatedAction.PauseRepeatingAction();
-            timeSystem.repeatedAction.ResumeRepeatingAction();
+            //timeSystem.repeatedAction.PauseRepeatingAction();
+            //timeSystem.repeatedAction.ResumeRepeatingAction();
         }
 
         public override void PhysicsUpdate()
@@ -39,9 +39,11 @@ namespace TvZ.TimeMechanic
             timeSystem.goldIncome.GainGoldIncome();
             timeSystem.goldIncome.GainBluePrint();
 
+            timeSystem.EndNightTime();
+
             timeSystem.AddCountDay();
             ///
-            timeSystem.repeatedAction.StopRepeatingAction();
+            //timeSystem.repeatedAction.StopRepeatingAction();
 
 
         }

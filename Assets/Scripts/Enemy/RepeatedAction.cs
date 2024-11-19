@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TvZ.Core;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,7 +9,7 @@ namespace TvZ.Enemy
     public class RepeatedAction : MonoBehaviour
     {
         private Coroutine repeatingCoroutine;
-        public float interval = 1.0f; // Interval time for repeating action
+        public float interval = 1f; // Interval time for repeating action
         public UnityEvent repeatedEvent;
        
         private EnemyManager enemyManager;
@@ -66,7 +67,7 @@ namespace TvZ.Enemy
             while (true)
             {
                 enemyManager.GenerateEnemyAuto();
-                yield return new WaitForSeconds(interval);
+                yield return new WaitForSeconds(interval/SpeedControl.Instance.speedSpawn);
             }
         }
     }

@@ -30,6 +30,7 @@ namespace TvZ.UI
         private void Start()
         {
             backMenuButton.onClick.AddListener(BackMenuButton);
+            
         }
 
 
@@ -86,6 +87,7 @@ namespace TvZ.UI
             if (!GameManager.Instance.CheckToyInField())
             {
                 NotificationSystem.Instance.SpawnNotifRight("You have'nt placed toy yet");
+                return;
             }
 
             await CloseUIAnimation();

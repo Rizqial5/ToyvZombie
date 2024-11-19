@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using TvZ.Core;
+using TvZ.UI;
 using TvZ.Enemy;
 using TvZ.Management;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 namespace TvZ.TimeMechanic
 {
@@ -30,6 +31,7 @@ namespace TvZ.TimeMechanic
         [SerializeField] GameObject nightTimeMenuUI;
         [SerializeField] TextMeshProUGUI dayTotal;
         [SerializeField] TextMeshProUGUI dayStatus;
+        [SerializeField] DayTimeUI dayTimeUI;
 
         [Header("Debug Option")]
         [SerializeField] Vector2 positionDebug = new Vector2(100, 0);
@@ -45,6 +47,8 @@ namespace TvZ.TimeMechanic
         public int dayElapsed {  get; private set; }
 
         public UnityEvent onDayChanged;
+
+        private bool isStart = false;
         
 
         private void Awake()
@@ -93,16 +97,33 @@ namespace TvZ.TimeMechanic
             
         }
 
-        public void ChangeStatusButton(string text, bool isEnable)
+        public void ChangeStatusButton(string text)
         {
-            changeButton.gameObject.SetActive(isEnable);
+            
             timeStatusText.text = text;
 
+        }
 
+        public async void StartNightTime()
+        {
+            await dayTimeUI.CloseUIAnimation();
+            ChangeStateUI(false);
+        }
+        public void EndNightTime()
+        {
+            dayTimeUI.BackUIAnimation();
+            ChangeStateUI(true);
+
+        }
+
+        private void ChangeStateUI(bool isEnable)
+        {
             daytimeMenuUI.SetActive(isEnable);
-
+            changeButton.gameObject.SetActive(isEnable);
             nightTimeMenuUI.SetActive(!isEnable);
         }
+
+        
 
         
 
