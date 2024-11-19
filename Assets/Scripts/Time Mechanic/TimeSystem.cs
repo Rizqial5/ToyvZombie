@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using TvZ.Core;
 using TvZ.Enemy;
 using TvZ.Management;
 using UnityEngine;
@@ -80,7 +81,8 @@ namespace TvZ.TimeMechanic
         {
             if (timeStateMachine.currentTimeState == dayTimeState)
             {
-                if (!GameManager.Instance.CheckToyInField()) return;
+                
+
                 timeStateMachine.ChangeState(nightTimeState);
             }
             //else if (timeStateMachine.currentTimeState == nightTimeState)

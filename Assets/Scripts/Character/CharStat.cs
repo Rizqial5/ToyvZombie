@@ -71,12 +71,14 @@ namespace TvZ.Character
             if(gameObject.CompareTag("Enemy"))
             {
 
+                GetComponent<Collider2D>().enabled = false;
+
                 Destroy(gameObject, 2f);
                 float randomYPos = Random.Range(-10, 10);
                 Vector3 rotationChar = new Vector3(0, 0, 360);
                 transform.DOMoveX(15f, 1);
                 transform.DOMoveY(randomYPos, 1);
-                transform.DORotate( rotationChar , 0.2f, RotateMode.FastBeyond360).SetLoops(-1);
+                transform.DORotate( rotationChar , 0.5f, RotateMode.FastBeyond360).SetLoops(-1);
 
             }
             else if(gameObject.CompareTag("Player"))

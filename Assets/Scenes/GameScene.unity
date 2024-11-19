@@ -1310,6 +1310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toyAvaialableList:
   - {fileID: 11400000, guid: da35542272cf14440b16e88295bc41b4, type: 2}
+  - {fileID: 11400000, guid: 0fc01da45db19a1489621ba43dc6dbc1, type: 2}
 --- !u!1 &357300678
 GameObject:
   m_ObjectHideFlags: 0
@@ -10639,9 +10640,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1354176503}
-        m_TargetAssemblyTypeName: TvZ.TimeMechanic.TimeSystem, Assembly-CSharp
-        m_MethodName: SkipDay
+      - m_Target: {fileID: 1888786780}
+        m_TargetAssemblyTypeName: TvZ.UI.DayTimeUI, Assembly-CSharp
+        m_MethodName: SkipDayButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11833,6 +11834,7 @@ MonoBehaviour:
   researchMenuUI: {fileID: 357300678}
   backMenuButton: {fileID: 703118437}
   yEndPos: -699
+  timeSystem: {fileID: 1354176503}
 --- !u!114 &1888786781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11903,7 +11905,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128

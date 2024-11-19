@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using System.Threading.Tasks;
+using TvZ.TimeMechanic;
+using TvZ.Core;
 
 namespace TvZ.UI
 {
@@ -21,6 +23,7 @@ namespace TvZ.UI
         [Header("CloseAnimation")]
         [SerializeField] float yEndPos;
 
+        [SerializeField] TimeSystem timeSystem;
         private float oldYpos;
         private float oldSelecetedXPos;
 
@@ -38,8 +41,6 @@ namespace TvZ.UI
 
             backMenuButton.gameObject.SetActive(true);
             gameObject.SetActive(false);
-
-            
 
             backMenuButton.onClick.AddListener(async () => { await SelectedUICloseAnim(placeMenuUI,-1276); });
         }
@@ -78,6 +79,18 @@ namespace TvZ.UI
 
             backMenuButton.gameObject.SetActive(false);
             
+        }
+
+        public async void SkipDayButton()
+        {
+            if (!GameManager.Instance.CheckToyInField())
+            {
+                NotificationSystem.Instance.SpawnNotifRight("You have'nt placed toy yet");
+            }
+
+            await CloseUIAnimation();
+
+            timeSystem.SkipDay();
         }
 
         public async Task CloseUIAnimation()

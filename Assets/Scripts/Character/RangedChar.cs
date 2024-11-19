@@ -50,17 +50,12 @@ namespace TvZ.Character
 
             if (detectionArea.isDetected)
             {
-                if (timeUntilFired >= 1f / bulletPerSecond)
-                {
+                
 
-                    ShotTarget(detectionArea.charDetected.transform);
+                ShotTarget(detectionArea.charDetected.transform);
 
 
-                    //animator.SetTrigger("tAttack");
-
-                    timeUntilFired = 0f;
-
-                }
+                   
                 
             }
             else if (!detectionArea.isDetected)
@@ -78,9 +73,15 @@ namespace TvZ.Character
             
             animator.SetBool("isAttack", true);
 
-            audioSource.Play();
+            
             
 
+        }
+
+        public void ShotSound()
+        {
+            audioSource.Play();
+            //
         }
 
         public void ShotBullet()

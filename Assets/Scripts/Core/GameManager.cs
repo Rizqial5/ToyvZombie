@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            
         }
         else
         {
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            NotificationSystem.Instance.SpawnNotifRight("You have'nt placed toy yet");
+            
             return false;
         }
 

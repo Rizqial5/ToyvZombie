@@ -15,7 +15,7 @@ namespace TvZ.Management
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
+                
             }
             else
             {
