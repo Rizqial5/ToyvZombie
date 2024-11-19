@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TvZ.Core;
 using UnityEngine;
 
 namespace TvZ.Character
@@ -13,7 +14,7 @@ namespace TvZ.Character
         private Animator animator;
         private AudioSource audioSource;
 
-        [SerializeField] float animatorSpeed = 1;
+        
 
         private void Awake()
         {
@@ -27,7 +28,7 @@ namespace TvZ.Character
         private void Start()
         {
             damagePoint = charStatSO.GetCharStat(StatEnum.Damage);
-            animator.speed = animatorSpeed;
+            animator.speed = 1;
         }
         private void Update()
         {
@@ -39,7 +40,7 @@ namespace TvZ.Character
             }
             else if (!GameManager.Instance.isPaused)
             {
-                animator.speed = animatorSpeed;
+                animator.speed = SpeedControl.Instance.speedAnimation;
 
             }
 

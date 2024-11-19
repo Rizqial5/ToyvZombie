@@ -27,6 +27,7 @@ namespace TvZ.TimeMechanic
 
         [Header("Menu UI")]
         [SerializeField] GameObject daytimeMenuUI;
+        [SerializeField] GameObject nightTimeMenuUI;
         [SerializeField] TextMeshProUGUI dayTotal;
         [SerializeField] TextMeshProUGUI dayStatus;
 
@@ -99,7 +100,11 @@ namespace TvZ.TimeMechanic
 
 
             daytimeMenuUI.SetActive(isEnable);
+
+            nightTimeMenuUI.SetActive(!isEnable);
         }
+
+        
 
         public void StartDayCount()
         {

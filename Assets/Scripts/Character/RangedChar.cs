@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TvZ.Core;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -71,6 +72,7 @@ namespace TvZ.Character
 
             this.targetEnemy = targetEnemy;
             
+            animator.speed = SpeedControl.Instance.speedAnimation;
             animator.SetBool("isAttack", true);
 
             

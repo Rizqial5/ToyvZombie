@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using TvZ.Core;
 using TvZ.Enemy;
 using UnityEngine;
 using UnityEngine.Events;
@@ -18,14 +19,17 @@ namespace TvZ.TimeMechanic
         [SerializeField] Button pauseButton;
         [SerializeField] Button resumeButton;
 
-        private DateTime endTime;          
+        private DateTime endTime;  
+        private DateTime startTime;
         private bool isCountingDown = false;
         private bool isPaused = false;
         private bool isStopped;
         private TimeSpan remainingTime;
         private RepeatedAction repeatedAction;
 
-        public UnityEvent onTimerEnd; 
+        public UnityEvent onTimerEnd;
+
+        
 
        
 
@@ -47,6 +51,7 @@ namespace TvZ.TimeMechanic
         public void StartCountdown()
         {
             endTime = DateTime.Now.AddSeconds(countdownTime); 
+            startTime = DateTime.Now;
             isCountingDown = true;
             isPaused = false;
         }
@@ -54,10 +59,11 @@ namespace TvZ.TimeMechanic
         
         void UpdateTimer()
         {
+
+            double elapsedSeconds = (DateTime.Now - startTime).TotalSeconds * SpeedControl.Instance.speedModifierGame;
+            remainingTime = endTime - startTime - TimeSpan.FromSeconds(elapsedSeconds);
+
             
-
-            TimeSpan remainingTime = endTime - (DateTime.Now); 
-
 
             
             if (remainingTime.TotalSeconds <= 0)
