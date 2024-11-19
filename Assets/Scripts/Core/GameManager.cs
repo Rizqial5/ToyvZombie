@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TvZ.Character;
-using TvZ.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
