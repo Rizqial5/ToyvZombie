@@ -23,7 +23,7 @@ namespace TvZ.TimeMechanic
                 timeSystem.SkipDay();
                 
             });
-            //
+            
         }
 
 
@@ -41,6 +41,8 @@ namespace TvZ.TimeMechanic
         public override void ExitState()
         {
             timeSystem.StartNightTime();
+
+            timeSystem.timerCountDown.onTimerEnd.RemoveAllListeners();
         }
     }
 }

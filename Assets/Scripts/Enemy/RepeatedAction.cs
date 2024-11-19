@@ -59,6 +59,7 @@ namespace TvZ.Enemy
             {
                 StopCoroutine(repeatingCoroutine);
                 repeatingCoroutine = null;
+                print("Enemy is EMpty");
             }
         }
 

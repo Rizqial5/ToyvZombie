@@ -47,6 +47,7 @@ namespace TvZ.TimeMechanic
         public int dayElapsed {  get; private set; }
 
         public UnityEvent onDayChanged;
+       
 
         private bool isStart = false;
         
@@ -111,8 +112,9 @@ namespace TvZ.TimeMechanic
         }
         public void EndNightTime()
         {
-            dayTimeUI.BackUIAnimation();
             ChangeStateUI(true);
+            dayTimeUI.BackUIAnimation();
+            
 
         }
 

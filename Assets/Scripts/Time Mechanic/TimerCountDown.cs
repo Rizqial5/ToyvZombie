@@ -24,14 +24,17 @@ namespace TvZ.TimeMechanic
         private bool isCountingDown = false;
         private bool isPaused = false;
         private bool isStopped;
+        private bool isFunctionActivated;  
+
         private TimeSpan remainingTime;
         private RepeatedAction repeatedAction;
 
         public UnityEvent onTimerEnd;
+        public UnityEvent on5SecondsLeft;
 
-        
 
-       
+
+
 
         void Update()
         {
@@ -46,6 +49,8 @@ namespace TvZ.TimeMechanic
         private void Start()
         {
             repeatedAction = GetComponent<RepeatedAction>();
+
+           
         }
 
         public void StartCountdown()
@@ -54,28 +59,36 @@ namespace TvZ.TimeMechanic
             startTime = DateTime.Now;
             isCountingDown = true;
             isPaused = false;
+            isFunctionActivated = false;
         }
 
-        
+
         void UpdateTimer()
         {
 
             double elapsedSeconds = (DateTime.Now - startTime).TotalSeconds * SpeedControl.Instance.speedModifierGame;
             remainingTime = endTime - startTime - TimeSpan.FromSeconds(elapsedSeconds);
 
-            
 
-            
+
+
             if (remainingTime.TotalSeconds <= 0)
             {
                 isCountingDown = false;
                 timerText.text = "00:00";
-                OnTimerEnd(); 
+                OnTimerEnd();
             }
-            else
+            else if (remainingTime.TotalSeconds > 0 && remainingTime.TotalSeconds <= 5f)
             {
-                timerText.text = string.Format("{0:D2}:{1:D2}", remainingTime.Minutes, remainingTime.Seconds);
+                if(!isFunctionActivated)
+                {
+                    on5SecondsLeft.Invoke();
+                    isFunctionActivated = true;
+                }
             }
+            
+
+            timerText.text = string.Format("{0:D2}:{1:D2}", remainingTime.Minutes, remainingTime.Seconds);
         }
 
         
@@ -120,6 +133,8 @@ namespace TvZ.TimeMechanic
                 resumeButton.gameObject.SetActive(false);
             }
         }
+
+        
 
         // Fungsi yang dipanggil saat timer berakhir
         void OnTimerEnd()

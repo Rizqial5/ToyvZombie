@@ -19,14 +19,15 @@ namespace TvZ.TimeMechanic
             timeSystem.timerCountDown.StartCountdown();
             timeSystem.timerCountDown.onTimerEnd.AddListener(() => { timeStateMachine.ChangeState(timeSystem.dayTimeState); });
 
-            //timeSystem.repeatedAction.StartRepeatingAction();
+            timeSystem.repeatedAction.StartRepeatingAction();
+
+            timeSystem.timerCountDown.on5SecondsLeft.AddListener(() => { timeSystem.repeatedAction.StopRepeatingAction(); });
         }
 
 
         public override void FrameUpdate()
         {
-            //timeSystem.repeatedAction.PauseRepeatingAction();
-            //timeSystem.repeatedAction.ResumeRepeatingAction();
+            
         }
 
         public override void PhysicsUpdate()
@@ -36,13 +37,17 @@ namespace TvZ.TimeMechanic
 
         public override void ExitState()
         {
+
+            
             timeSystem.goldIncome.GainGoldIncome();
             timeSystem.goldIncome.GainBluePrint();
 
             timeSystem.EndNightTime();
 
             timeSystem.AddCountDay();
-            ///
+
+            timeSystem.timerCountDown.onTimerEnd.RemoveAllListeners();
+
             //timeSystem.repeatedAction.StopRepeatingAction();
 
 
