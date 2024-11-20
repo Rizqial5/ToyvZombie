@@ -17,6 +17,11 @@ namespace TvZ.Core
             _pool = new ObjectPool<GameObject>(CreateBulletPool, OnTakeBulletFromPool, OnReturnBullet, OnDestroyBullet, true, 1000,2000);
         }
 
+        public void SetObjectPrefab(GameObject prefabObject)
+        {
+            this.prefabObject = prefabObject;
+        }
+
         private GameObject CreateBulletPool()
         {
             GameObject spawnedObject = Instantiate(prefabObject,transform.position, transform.rotation,transform);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TvZ.Character;
+using TvZ.Interfaces;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -18,6 +19,7 @@ namespace TvZ.Core
 
 
         private CheckRequiredResourceChar checkRequiredResourceChar;
+        private ObjectSpawner objectSpawner;
 
         
 
@@ -37,6 +39,9 @@ namespace TvZ.Core
 
 
             snapPoints = FindObjectsOfType<SnapPoint>();
+            objectSpawner = GetComponent<ObjectSpawner>();
+
+            objectSpawner.SetObjectPrefab(objectToSpawn);
 
             
         }
@@ -66,7 +71,8 @@ namespace TvZ.Core
                 return;
             }
             // Buat objek yang didrag dari prefab
-            draggedObject = Instantiate(objectToSpawn);
+            draggedObject = objectSpawner._pool.Get();
+
             draggedObject.SetActive(false);  // Sembunyikan dulu, akan ditampilkan saat drag
             
         }
@@ -141,7 +147,7 @@ namespace TvZ.Core
             else
             {
                 // Jika tidak ada snap point yang dekat, tempatkan objek di posisi mouse terakhir
-                Destroy(draggedObject);
+                draggedObject.GetComponent<IPoolAble>().ReleaseObject();
             }
 
             foreach (SnapPoint item in snapPoints)

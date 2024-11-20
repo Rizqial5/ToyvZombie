@@ -85,7 +85,8 @@ namespace TvZ.Character
 
             yield return new WaitForSeconds(bulletTimer);
 
-            pool.Release(this.gameObject);
+            ReleaseObject();
+            
         }
 
         
@@ -94,7 +95,7 @@ namespace TvZ.Character
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                pool.Release(this.gameObject);
+                ReleaseObject();
 
                 collision.gameObject.GetComponent<CharStat>().DamageHealth(bulletDamage);
                 print("Kena");
@@ -110,6 +111,9 @@ namespace TvZ.Character
 
         }
 
-       
+        public void ReleaseObject()
+        {
+            pool.Release(this.gameObject);
+        }
     }
 }

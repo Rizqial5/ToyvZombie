@@ -3,6 +3,7 @@ using TvZ.Character;
 using TvZ.Core;
 using TvZ.TimeMechanic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace TvZ.Enemy
 {
@@ -17,6 +18,7 @@ namespace TvZ.Enemy
         private HouseStat houseStat;
         private List<StatSO> enemyPrefab = new List<StatSO>();
         private TimeSystem timeSystem;
+        
 
         private void Awake()
         {
@@ -53,7 +55,7 @@ namespace TvZ.Enemy
 
         public void GenerateEnemyAuto()
         {
-            GenerateEnemy();
+            //GenerateEnemy();
         }
 
         

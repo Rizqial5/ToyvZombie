@@ -2,22 +2,25 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TvZ.Core;
+using TvZ.Interfaces;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Pool;
 
 namespace TvZ.Character
 {
-    public class CharStat : MonoBehaviour
+    public class CharStat : MonoBehaviour, IPoolAble
     {
 
         [SerializeField] StatSO charStatSO;
 
         private float charHealth;
-
+        private ObjectPool<GameObject> charPool;
         
 
         private SpriteRenderer spriteRenderer;
         private Animator animator;
+       
 
         public UnityEvent onCharDie;
 
@@ -94,7 +97,8 @@ namespace TvZ.Character
 
                 GetComponent<Collider2D>().enabled = false;
 
-                Destroy(gameObject, 2f);
+                StartCoroutine(DestroyAfterTime(2f));
+
                 float randomYPos = Random.Range(-10, 10);
                 Vector3 rotationChar = new Vector3(0, 0, 360);
                 transform.DOMoveX(15f, 1);
@@ -112,6 +116,23 @@ namespace TvZ.Character
         private void OnDestroy()
         {
             transform.DOKill();
+        }
+
+        public void SetPool(ObjectPool<GameObject> pool)
+        {
+            charPool = pool;
+        }
+
+        public void ReleaseObject()
+        {
+            charPool.Release(this.gameObject);
+        }
+
+        public IEnumerator DestroyAfterTime(float destroyTime)
+        {
+            yield return new WaitForSeconds(destroyTime);
+
+            charPool.Release(this.gameObject);
         }
     }
 }
