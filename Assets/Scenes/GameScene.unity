@@ -6938,7 +6938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91c6546331c768c43b77bb16e7dbbd66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownTime: 3
+  countdownTime: 10
   timerText: {fileID: 431119036}
   resumeButton: {fileID: 1452338609}
   pauseButton: {fileID: 1569685273}

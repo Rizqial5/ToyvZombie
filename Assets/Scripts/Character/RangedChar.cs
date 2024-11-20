@@ -24,7 +24,7 @@ namespace TvZ.Character
         private DetectionArea detectionArea;
         private Animator animator;
         private AudioSource audioSource;
-        private BulletSpawner bulletSpawner;
+        private ObjectSpawner bulletPool;
         
 
         private bool isFired;
@@ -33,7 +33,7 @@ namespace TvZ.Character
             detectionArea = GetComponentInChildren<DetectionArea>();
             animator = GetComponent<Animator>();
             audioSource = GetComponent<AudioSource>();
-            bulletSpawner = GetComponent<BulletSpawner>();
+            bulletPool = GetComponent<ObjectSpawner>();
             
             
         }
@@ -90,7 +90,7 @@ namespace TvZ.Character
 
         public void ShotBullet()
         {
-            GameObject bullet = bulletSpawner._pool.Get();
+            GameObject bullet = bulletPool._pool.Get();
 
 
             bullet.GetComponent<BulletPhysics>().SetTarget(targetEnemy, bulletDamage);

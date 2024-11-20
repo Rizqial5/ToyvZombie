@@ -2,10 +2,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Pool;
+using TvZ.Interfaces;
 
 namespace TvZ.Character
 {
-    public class BulletPhysics : MonoBehaviour
+    public class BulletPhysics : MonoBehaviour, IPoolAble
     {
         public float speed = 10f; // Kecepatan bullet
 
@@ -108,5 +109,7 @@ namespace TvZ.Character
 
 
         }
+
+       
     }
 }
