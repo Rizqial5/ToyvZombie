@@ -9,12 +9,13 @@ namespace TvZ.Core
     public class ObjectSpawner: MonoBehaviour
     {
         public ObjectPool<GameObject> _pool;
+        
 
         [SerializeField] GameObject prefabObject;
 
         private void Start()
         {
-            _pool = new ObjectPool<GameObject>(CreateBulletPool, OnTakeBulletFromPool, OnReturnBullet, OnDestroyBullet, true, 1000,2000);
+            _pool = new ObjectPool<GameObject>(CreateObjectPool, OnTakeObjectFromPool, OnReturnObject, OnDestroyObject, true, 1000,2000);
         }
 
         public void SetObjectPrefab(GameObject prefabObject)
@@ -22,7 +23,7 @@ namespace TvZ.Core
             this.prefabObject = prefabObject;
         }
 
-        private GameObject CreateBulletPool()
+        private GameObject CreateObjectPool()
         {
             GameObject spawnedObject = Instantiate(prefabObject,transform.position, transform.rotation,transform);
 
@@ -31,19 +32,19 @@ namespace TvZ.Core
             return spawnedObject;
         }
 
-        private void OnTakeBulletFromPool(GameObject objectPrefab)
+        private void OnTakeObjectFromPool(GameObject objectPrefab)
         {
             objectPrefab.transform.position = transform.position;
 
             objectPrefab.gameObject.SetActive(true);
         }
 
-        private void OnReturnBullet(GameObject pbjectPrefab)
+        private void OnReturnObject(GameObject pbjectPrefab)
         {
             pbjectPrefab.gameObject.SetActive(false);
         }
 
-        private void OnDestroyBullet(GameObject objectPrefab)
+        private void OnDestroyObject(GameObject objectPrefab)
         {
             Destroy(objectPrefab.gameObject);
         }

@@ -7,6 +7,6 @@ namespace TvZ.Interfaces
     {
         
        void SetPool(ObjectPool<GameObject> pool);
-        void ReleaseObject();
+       void ReleaseObject();
     }
 }
