@@ -12,12 +12,10 @@ namespace TvZ.TimeMechanic
 {
     public class TimerCountDown : MonoBehaviour
     {
-        
-        [SerializeField] TextMeshProUGUI timerText;             
         [SerializeField] int countdownTime = 300;
-
-        [SerializeField] Button pauseButton;
+        [SerializeField] TextMeshProUGUI timerText;             
         [SerializeField] Button resumeButton;
+        [SerializeField] Button pauseButton;
 
         private DateTime endTime;  
         private DateTime startTime;
