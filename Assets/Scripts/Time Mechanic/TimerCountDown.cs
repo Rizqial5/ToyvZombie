@@ -26,6 +26,7 @@ namespace TvZ.TimeMechanic
 
         private TimeSpan remainingTime;
         private RepeatedAction repeatedAction;
+        private DateTime nowTime;
 
         public UnityEvent onTimerEnd;
         public UnityEvent on5SecondsLeft;
@@ -53,7 +54,7 @@ namespace TvZ.TimeMechanic
 
         public void StartCountdown()
         {
-            endTime = DateTime.Now.AddSeconds(countdownTime); 
+            remainingTime = TimeSpan.FromSeconds(countdownTime);
             startTime = DateTime.Now;
             isCountingDown = true;
             isPaused = false;
@@ -64,10 +65,12 @@ namespace TvZ.TimeMechanic
         void UpdateTimer()
         {
 
-            double elapsedSeconds = (DateTime.Now - startTime).TotalSeconds * SpeedControl.Instance.speedModifierGame;
-            remainingTime = endTime - startTime - TimeSpan.FromSeconds(elapsedSeconds);
+            nowTime = DateTime.Now;
 
+            double elapsedSeconds = (nowTime - startTime).TotalSeconds * SpeedControl.Instance.speedModifierGame;
+            remainingTime -= TimeSpan.FromSeconds(elapsedSeconds);
 
+            startTime = nowTime;
 
 
             if (remainingTime.TotalSeconds <= 0)

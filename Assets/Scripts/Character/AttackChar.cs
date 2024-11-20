@@ -28,32 +28,25 @@ namespace TvZ.Character
         private void Start()
         {
             damagePoint = charStatSO.GetCharStat(StatEnum.Damage);
-            animator.speed = 1;
+            animator.speed = SpeedControl.Instance.speedAnimation;
         }
         private void Update()
         {
             
 
-            if (GameManager.Instance.isPaused)
-            {
-                animator.speed = 0;
-            }
-            else if (!GameManager.Instance.isPaused)
-            {
-                animator.speed = SpeedControl.Instance.speedAnimation;
-
-            }
-
             if (detectionArea.isDetected)
             {
                 animator.SetBool("isAttack", true);
 
-            }else if (!detectionArea.isDetected)
+            }
+            else if (!detectionArea.isDetected)
             {
                 animator.SetBool("isAttack", false);
             }
 
         }
+
+        
 
         public void EnemyHit()
         {

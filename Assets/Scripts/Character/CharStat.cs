@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TvZ.Core;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,12 +17,14 @@ namespace TvZ.Character
         
 
         private SpriteRenderer spriteRenderer;
+        private Animator animator;
 
         public UnityEvent onCharDie;
 
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
+            animator = GetComponent<Animator>();
 
             
         }
@@ -33,7 +36,25 @@ namespace TvZ.Character
             
         }
 
+        private void Update()
+        {
+            CharAnimSpeedControl();
+        }
 
+        public void CharAnimSpeedControl()
+        {
+            if (animator == null) return;
+
+            if (GameManager.Instance.isPaused)
+            {
+                animator.speed = 0;
+            }
+            else if (!GameManager.Instance.isPaused)
+            {
+                animator.speed = SpeedControl.Instance.speedAnimation;
+
+            }
+        }
         public void DamageHealth(float damage)
         {
             charHealth -= damage;
