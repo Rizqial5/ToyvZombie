@@ -142,3 +142,16 @@ MonoBehaviour:
   charStatSO: {fileID: 11400000, guid: 0fc01da45db19a1489621ba43dc6dbc1, type: 2}
   bulletPrefab: {fileID: 2206321282944862995, guid: bc69c96daa1162f40a2436072961daab, type: 3}
   bulletPerSecond: 1
+--- !u!114 &4241475629619635213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5932357205250075242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dee73f7d459cbb44b80a17f9d627b3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabObject: {fileID: 2206321282944862995, guid: bc69c96daa1162f40a2436072961daab, type: 3}

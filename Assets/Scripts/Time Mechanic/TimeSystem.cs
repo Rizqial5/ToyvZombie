@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using TvZ.Core;
 
 namespace TvZ.TimeMechanic
 {
@@ -43,6 +44,7 @@ namespace TvZ.TimeMechanic
         public GoldIncome goldIncome { get; private set; }
 
         public RepeatedAction repeatedAction { get; private set; }
+        public SpeedControl speedControl { get; private set; }
 
         public int dayElapsed {  get; private set; }
 
@@ -60,6 +62,7 @@ namespace TvZ.TimeMechanic
 
             timerCountDown = GetComponent<TimerCountDown>();
             enemyManager = GetComponent<EnemyManager>();
+            speedControl = GetComponent<SpeedControl>();
 
             dayElapsed = 1;
             
@@ -113,7 +116,7 @@ namespace TvZ.TimeMechanic
         public void EndNightTime()
         {
             ChangeStateUI(true);
-            dayTimeUI.BackUIAnimation();
+            dayTimeUI.BackMenuButton();
             
 
         }

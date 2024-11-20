@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Pool;
 
 namespace TvZ.Character
 {
@@ -14,6 +16,9 @@ namespace TvZ.Character
         private Rigidbody2D rb;
         private Collider2D thisCollider;
 
+        private ObjectPool<GameObject> pool;
+        private Coroutine deactivateBulletTimer;
+
         public UnityEvent onHitChar;
 
         private void Awake()
@@ -22,11 +27,28 @@ namespace TvZ.Character
             thisCollider = GetComponent<Collider2D>();
         }
 
+        private void OnEnable()
+        {
+            deactivateBulletTimer = StartCoroutine(DeactivateBulletTimer());
+        }
+
         private void Start()
         {
-            Destroy(gameObject, 4f);
-
+            
+            
             IgnoreCollider();
+
+        }
+       
+
+        void FixedUpdate()
+        {
+            if (GameManager.Instance.isPaused) return;
+
+
+
+            rb.velocity = Vector2.right * speed;
+
 
         }
 
@@ -51,24 +73,28 @@ namespace TvZ.Character
 
         }
 
-
-
-        void FixedUpdate()
+        public void SetPool(ObjectPool<GameObject> pool)
         {
-            if (GameManager.Instance.isPaused) return;
-            
-            
-
-            rb.velocity = Vector2.right * speed;
-
-
+            this.pool = pool;
         }
+
+        private IEnumerator DeactivateBulletTimer()
+        {
+            float bulletTimer = 4f;
+
+            yield return new WaitForSeconds(bulletTimer);
+
+            pool.Release(this.gameObject);
+        }
+
+        
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                Destroy(gameObject);
+                pool.Release(this.gameObject);
+
                 collision.gameObject.GetComponent<CharStat>().DamageHealth(bulletDamage);
                 print("Kena");
                 onHitChar.Invoke();

@@ -30,7 +30,7 @@ namespace TvZ.UI
         private void Start()
         {
             backMenuButton.onClick.AddListener(BackMenuButton);
-            
+            oldYpos = transform.position.y;
         }
 
 
@@ -75,8 +75,10 @@ namespace TvZ.UI
 
         public void BackMenuButton()
         {
-            BackUIAnimation();
             gameObject.SetActive(true);
+
+            BackUIAnimation();
+            
 
             backMenuButton.gameObject.SetActive(false);
             
@@ -97,7 +99,7 @@ namespace TvZ.UI
 
         public async Task CloseUIAnimation()
         {
-            oldYpos = transform.position.y;
+            
             await GetComponent<RectTransform>().DOAnchorPosY(yEndPos,.3f).AsyncWaitForCompletion();
 
 
@@ -123,6 +125,8 @@ namespace TvZ.UI
         public void BackUIAnimation()
         {
             transform.DOMoveY(oldYpos, .8f);
+
+            print("UI Kembali");
             
         }
     }

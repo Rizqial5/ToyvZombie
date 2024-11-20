@@ -42,6 +42,8 @@ namespace TvZ.TimeMechanic
             timeSystem.goldIncome.GainGoldIncome();
             timeSystem.goldIncome.GainBluePrint();
 
+            timeSystem.speedControl.SetSpeedGameTime(1);
+
             timeSystem.EndNightTime();
 
             timeSystem.AddCountDay();
