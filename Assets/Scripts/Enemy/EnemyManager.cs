@@ -21,7 +21,7 @@ namespace TvZ.Enemy
 
         private Dictionary<StatSO, ObjectSpawner> enemyDictPool = new Dictionary<StatSO, ObjectSpawner>();
 
-        private ObjectSpawner enemyPool;
+        private EnemyPool enemyPool;
         
         private TimeSystem timeSystem;
 
@@ -32,10 +32,12 @@ namespace TvZ.Enemy
         {
             houseStat = FindAnyObjectByType<HouseStat>();
             timeSystem = FindAnyObjectByType<TimeSystem>();
-            enemyPool = GetComponent<ObjectSpawner>();
+            enemyPool = GetComponent<EnemyPool>();
             
             
         }
+
+        
 
 
         private void GenerateEnemy()
@@ -56,17 +58,13 @@ namespace TvZ.Enemy
             StatSO enemySelected = enemyPrefab[randomIntEnemies];
 
 
-
-
-
-
-            enemyPool.SetObjectPrefab(enemySelected.GetCharPrefab(), this.transform, this.transform);
+            enemyPool.SetSelectedEnemy(enemySelected);
 
 
 
             //GameObject spawnedEnemy = Instantiate(enemySelected.GetCharPrefab(), startLoc[randomInt].position, Quaternion.identity);
 
-            GameObject spawnedEnemy = enemyPool._pool.Get();
+            GameObject spawnedEnemy = enemyPool._poolDictionary[enemySelected].Get();
 
             spawnedEnemy.transform.position = startLoc[randomInt].position;
 

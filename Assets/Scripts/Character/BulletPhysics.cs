@@ -98,7 +98,7 @@ namespace TvZ.Character
                 ReleaseObject();
 
                 collision.gameObject.GetComponent<CharStat>().DamageHealth(bulletDamage);
-                print("Kena");
+                //print("Kena");
                 onHitChar.Invoke();
             }
 

@@ -11,8 +11,6 @@ namespace TvZ.Core
     {
         public ObjectPool<GameObject> _pool;
 
-        [SerializeField] ListPool<GameObject> _pools = new ListPool<GameObject>();
-
         [SerializeField] GameObject prefabObject;
 
         [SerializeField] Transform attachedTransform;
