@@ -13,19 +13,32 @@ namespace TvZ.Core
 
         [SerializeField] GameObject prefabObject;
 
+        [SerializeField] Transform parentObject;
+
         private void Start()
         {
             _pool = new ObjectPool<GameObject>(CreateObjectPool, OnTakeObjectFromPool, OnReturnObject, OnDestroyObject, true, 1000,2000);
         }
 
-        public void SetObjectPrefab(GameObject prefabObject)
+        public void SetObjectPrefab(GameObject prefabObject, Transform parentObject)
         {
             this.prefabObject = prefabObject;
+            this.parentObject = parentObject;
         }
 
         private GameObject CreateObjectPool()
         {
-            GameObject spawnedObject = Instantiate(prefabObject,transform.position, transform.rotation,transform);
+            GameObject spawnedObject;
+
+            if(parentObject == null)
+            {
+                spawnedObject = Instantiate(prefabObject, transform.position, transform.rotation);
+            }
+            else
+            {
+                spawnedObject = Instantiate(prefabObject, transform.position, transform.rotation, parentObject);
+            }
+            
 
             spawnedObject.GetComponent<IPoolAble>().SetPool(_pool);
 
@@ -39,9 +52,9 @@ namespace TvZ.Core
             objectPrefab.gameObject.SetActive(true);
         }
 
-        private void OnReturnObject(GameObject pbjectPrefab)
+        private void OnReturnObject(GameObject objectPrefab)
         {
-            pbjectPrefab.gameObject.SetActive(false);
+            objectPrefab.gameObject.SetActive(false);
         }
 
         private void OnDestroyObject(GameObject objectPrefab)

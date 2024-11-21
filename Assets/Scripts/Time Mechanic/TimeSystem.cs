@@ -61,7 +61,7 @@ namespace TvZ.TimeMechanic
             nightTimeState = new NightTime(this, timeStateMachine);
 
             timerCountDown = GetComponent<TimerCountDown>();
-            enemyManager = GetComponent<EnemyManager>();
+            enemyManager = FindAnyObjectByType<EnemyManager>();
             speedControl = GetComponent<SpeedControl>();
 
             dayElapsed = 1;

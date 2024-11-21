@@ -23,7 +23,7 @@ namespace TvZ.Enemy
         private void Awake()
         {
             houseStat = FindAnyObjectByType<HouseStat>();
-            timeSystem = GetComponent<TimeSystem>();
+            timeSystem = FindAnyObjectByType<TimeSystem>();
         }
         
 
@@ -55,7 +55,7 @@ namespace TvZ.Enemy
 
         public void GenerateEnemyAuto()
         {
-            //GenerateEnemy();
+            GenerateEnemy();
         }
 
         
