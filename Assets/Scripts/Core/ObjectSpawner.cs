@@ -6,24 +6,34 @@ using TvZ.Interfaces;
 
 namespace TvZ.Core
 {
+    
     public class ObjectSpawner: MonoBehaviour
     {
         public ObjectPool<GameObject> _pool;
-        
+
+        [SerializeField] ListPool<GameObject> _pools = new ListPool<GameObject>();
 
         [SerializeField] GameObject prefabObject;
 
+        [SerializeField] Transform attachedTransform;
+
         [SerializeField] Transform parentObject;
+
+         
 
         private void Start()
         {
             _pool = new ObjectPool<GameObject>(CreateObjectPool, OnTakeObjectFromPool, OnReturnObject, OnDestroyObject, true, 1000,2000);
+            
         }
 
-        public void SetObjectPrefab(GameObject prefabObject, Transform parentObject)
+        public void SetObjectPrefab(GameObject prefabObject, Transform attachedTransform, Transform parentObject)
         {
             this.prefabObject = prefabObject;
             this.parentObject = parentObject;
+            this.attachedTransform = attachedTransform;
+
+            
         }
 
         private GameObject CreateObjectPool()
@@ -32,11 +42,11 @@ namespace TvZ.Core
 
             if(parentObject == null)
             {
-                spawnedObject = Instantiate(prefabObject, transform.position, transform.rotation);
+                spawnedObject = Instantiate(prefabObject, attachedTransform.position, attachedTransform.rotation);
             }
             else
             {
-                spawnedObject = Instantiate(prefabObject, transform.position, transform.rotation, parentObject);
+                spawnedObject = Instantiate(prefabObject, attachedTransform.position, attachedTransform.rotation, parentObject);
             }
             
 
@@ -47,7 +57,7 @@ namespace TvZ.Core
 
         private void OnTakeObjectFromPool(GameObject objectPrefab)
         {
-            objectPrefab.transform.position = transform.position;
+            objectPrefab.transform.position = attachedTransform.position;
 
             objectPrefab.gameObject.SetActive(true);
         }

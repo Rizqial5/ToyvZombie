@@ -16,6 +16,7 @@ namespace TvZ.Enemy
         private DetectionArea detectionArea;
 
         private Rigidbody2D rb;
+        private float oldSpeed;
 
         public UnityEvent onReachedTarget;
 
@@ -25,9 +26,16 @@ namespace TvZ.Enemy
             detectionArea = GetComponentInChildren<DetectionArea>();
         }
 
-        private void Start()
+        private void OnEnable()
         {
+            oldSpeed = speed;
             GetComponent<CharStat>().onCharDie.AddListener(() => { speed = 0; });
+        }
+
+        private void OnDisable()
+        {
+            speed = oldSpeed;
+            
         }
 
         private void FixedUpdate()

@@ -39,6 +39,14 @@ namespace TvZ.Character
             
         }
 
+        private void OnEnable()
+        {
+            charHealth = charStatSO.GetCharStat(StatEnum.Health);
+            GetComponent<Collider2D>().enabled = true;
+        }
+
+        
+
         private void Update()
         {
             CharAnimSpeedControl();
@@ -103,7 +111,7 @@ namespace TvZ.Character
                 Vector3 rotationChar = new Vector3(0, 0, 360);
                 transform.DOMoveX(15f, 1);
                 transform.DOMoveY(randomYPos, 1);
-                transform.DORotate( rotationChar , 0.5f, RotateMode.FastBeyond360).SetLoops(-1);
+                transform.DORotate( rotationChar , 0.5f, RotateMode.FastBeyond360).SetLoops(2);
 
             }
             else if(gameObject.CompareTag("Player"))

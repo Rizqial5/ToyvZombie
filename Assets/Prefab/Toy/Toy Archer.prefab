@@ -160,4 +160,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObject: {fileID: 2206321282944862995, guid: bc69c96daa1162f40a2436072961daab, type: 3}
+  attachedTransform: {fileID: 5932357205250075240}
   parentObject: {fileID: 5932357205250075240}

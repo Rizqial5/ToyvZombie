@@ -41,7 +41,7 @@ namespace TvZ.Core
             snapPoints = FindObjectsOfType<SnapPoint>();
             objectSpawner = GetComponent<ObjectSpawner>();
 
-            objectSpawner.SetObjectPrefab(objectToSpawn, null);
+            objectSpawner.SetObjectPrefab(objectToSpawn, transform,null);
 
             
         }
