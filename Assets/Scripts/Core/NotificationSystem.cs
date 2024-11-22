@@ -1,23 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using TvZ.Interfaces;
+using TvZ.UI;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace TvZ.Core
 {
     public class NotificationSystem : MonoBehaviour
     {
 
-        [SerializeField] GameObject notifPanel;
+        [SerializeField] NotifPanelUI notifPanel;
         [SerializeField] Transform notifTransformRight;
         [SerializeField] Transform notifTransformLeft;
         [SerializeField] float timerNotif = 1f;
 
         public static NotificationSystem Instance;
 
+        private ObjectSpawner notifSpawner;
+
+        private ObjectPool<GameObject> notifPool;
 
         private void Awake()
         {
+            notifSpawner = GetComponent<ObjectSpawner>();
+
             if (Instance == null)
             {
                 Instance = this;
@@ -29,15 +37,24 @@ namespace TvZ.Core
             }
         }
 
+        private void Start()
+        {
+            notifSpawner.SetObjectPrefab(notifPanel.gameObject, notifTransformRight, notifTransformRight);
+        }
+
         public void SpawnNotifRight(string notifText)
         {
             if (notifPanel == null) return;
+
+
             
-            GameObject spawnedNotif = Instantiate(notifPanel,notifTransformRight);
 
-            spawnedNotif.GetComponentInChildren<TextMeshProUGUI>().text = notifText;    
+            GameObject spawnedNotif = notifSpawner._pool.Get();
+            spawnedNotif.transform.parent = notifTransformRight;
 
-            Destroy(spawnedNotif,timerNotif);
+            spawnedNotif.GetComponentInChildren<TextMeshProUGUI>().text = notifText;
+
+            StartCoroutine(DestroyTimer(spawnedNotif, timerNotif));
 
 
         }
@@ -45,13 +62,25 @@ namespace TvZ.Core
         {
             if (notifPanel == null) return;
 
-            GameObject spawnedNotif = Instantiate(notifPanel, notifTransformLeft);
+           
+
+            GameObject spawnedNotif = notifSpawner._pool.Get();
+            spawnedNotif.transform.parent = notifTransformLeft;
 
             spawnedNotif.GetComponentInChildren<TextMeshProUGUI>().text = notifText;
 
-            Destroy(spawnedNotif, timerNotif);
+            StartCoroutine(DestroyTimer(spawnedNotif, timerNotif));
 
 
         }
+
+        private IEnumerator DestroyTimer(GameObject objectDestroy,float seconds)
+        {
+            yield return new WaitForSeconds(seconds);
+
+            objectDestroy.GetComponent<NotifPanelUI>().ReleaseObject();
+        }
+
+        
     }
 }
