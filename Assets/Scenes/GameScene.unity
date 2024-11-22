@@ -7043,10 +7043,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1f0589b8f403a4e9d37e40209f1305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notifPanel: {fileID: 8571027842317962333, guid: 44df1302b4084004eba7df90c0dd647c, type: 3}
+  notifPanel: {fileID: 163909314406047933, guid: 44df1302b4084004eba7df90c0dd647c, type: 3}
   notifTransformRight: {fileID: 1331059876}
   notifTransformLeft: {fileID: 1673035695}
-  timerNotif: 0.5
+  timerNotif: 0.8
 --- !u!114 &1354176507
 MonoBehaviour:
   m_ObjectHideFlags: 0
