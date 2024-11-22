@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using TvZ.TimeMechanic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TvZ.Core
 {
@@ -14,7 +15,7 @@ namespace TvZ.Core
         [SerializeField] TextMeshProUGUI totalDayValueText;
 
         private TimerCountDown timerCountDown;
-
+        public UnityEvent onGameOver;
         
        public void GameOver()
        {
@@ -23,6 +24,8 @@ namespace TvZ.Core
             GameManager.Instance.SetPause(true);
 
             gameOverUI.SetActive(true);
+
+            onGameOver.Invoke();
 
             totalDayValueText.text = timerCountDown.GetComponent<TimeSystem>().dayElapsed.ToString();
 

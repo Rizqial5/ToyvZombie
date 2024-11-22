@@ -398,6 +398,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SpeedUpButton_1
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 4, z: 3, w: 3}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6be4bd379ae7b8343b2506858904fec5
+      internalID: -782707424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpeedUpButton_2
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 3, z: 3, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24850845fabd26047a6325e3be5e0d04
+      internalID: 27648693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_2_0
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 444
+        width: 26
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75bd6e07d594b5a41adf4d6c544c707e
+      internalID: 189538774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -419,10 +482,13 @@ TextureImporter:
       Frame3UI: 22790119
       FrameICon: -674272711
       FrameUI: -1864081971
+      Modern_UI_Style_2_0: 189538774
       PauseBUtton1: 732210308
       PauseButton2: 1768062849
       PlayButton1: -256339788
       PlayButton2: 2084200553
+      SpeedUpButton_1: -782707424
+      SpeedUpButton_2: 27648693
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

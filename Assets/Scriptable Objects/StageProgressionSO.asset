@@ -16,6 +16,8 @@ MonoBehaviour:
   - dayLevel: 1
     enemySpawnedList:
     - {fileID: 11400000, guid: 332fec6ff0f3fa74894c9afc92d785a3, type: 2}
+    - {fileID: 11400000, guid: 711e5181d02c2244182bc13d53edd54b, type: 2}
+    - {fileID: 11400000, guid: a2e4218b825e0d545aced4f0b7f23f41, type: 2}
   - dayLevel: 2
     enemySpawnedList:
     - {fileID: 11400000, guid: 332fec6ff0f3fa74894c9afc92d785a3, type: 2}

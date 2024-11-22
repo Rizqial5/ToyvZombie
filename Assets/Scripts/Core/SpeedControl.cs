@@ -40,10 +40,10 @@ namespace TvZ.Core
         {
             if(setSpeed == 2)
             {
-                speedAnimation = 2f;
+                speedAnimation = 1.5f;
                 speedSpawn = 2f;
                 speedModifierGame = 5f;
-                Time.timeScale = 3f;
+                Time.timeScale = 2f;
 
             } else if(setSpeed == 1)
             {

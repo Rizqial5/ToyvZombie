@@ -31,6 +31,7 @@ namespace TvZ.Character
         private void OnEnable()
         {
             deactivateBulletTimer = StartCoroutine(DeactivateBulletTimer());
+            IgnoreCollider();
         }
 
         private void Start()

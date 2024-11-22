@@ -1406,7 +1406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &368051979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3442,6 +3442,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 1103671549}
   totalDayValueText: {fileID: 1772914812}
+  onGameOver:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &720702909
 GameObject:
   m_ObjectHideFlags: 0
@@ -4007,6 +4010,7 @@ GameObject:
   - component: {fileID: 825887564}
   - component: {fileID: 825887563}
   - component: {fileID: 825887562}
+  - component: {fileID: 825887565}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -4026,6 +4030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af0b1b1163e4b74883335903d92b21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  houseStat: {fileID: 715386268}
   interval: 5
   repeatedEvent:
     m_PersistentCalls:
@@ -4080,6 +4085,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &825887565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825887561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b7d6f0dca33154782558ea360616a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLists:
+  - {fileID: 11400000, guid: 332fec6ff0f3fa74894c9afc92d785a3, type: 2}
+  - {fileID: 11400000, guid: 711e5181d02c2244182bc13d53edd54b, type: 2}
+  - {fileID: 11400000, guid: a2e4218b825e0d545aced4f0b7f23f41, type: 2}
 --- !u!1 &835514181
 GameObject:
   m_ObjectHideFlags: 0

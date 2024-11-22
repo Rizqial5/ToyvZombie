@@ -8,15 +8,24 @@ namespace TvZ.Enemy
 {
     public class RepeatedAction : MonoBehaviour
     {
+
+        [SerializeField] HouseStat houseStat;
+
         private Coroutine repeatingCoroutine;
         public float interval = 1f; // Interval time for repeating action
         public UnityEvent repeatedEvent;
        
         private EnemyManager enemyManager;
+        
 
         private void Awake()
         {
             enemyManager = GetComponent<EnemyManager>();
+        }
+
+        private void Start()
+        {
+            houseStat.onGameOver.AddListener(StopRepeatingAction);
         }
 
         public void StartRepeatingAction()
